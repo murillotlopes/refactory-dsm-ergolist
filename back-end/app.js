@@ -11,8 +11,8 @@ var logger = require('morgan');
 
 var app = express();
 
-const dbConnection = require('./config/database')
-// dbConnection()
+const dbConnection = require('./config/database');
+dbConnection();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -20,11 +20,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ************************ ROTAS *******************************
+/********** ROTAS **********/
 
 const glossary = require('./routes/glossary')
 app.use('/glossary', glossary)
 
-// ***************************************************************
+/***********************/
 
 module.exports = app;
