@@ -26,5 +26,5 @@ module.exports = function() {
         }
     })
 
-    return mongoose.model('User', schema, 'users')
+    return mongoose.model('User', schema, 'user')
 }
