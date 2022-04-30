@@ -3,7 +3,7 @@ const User = require('../models/User')()
 
 const controller = {}  // objeto vazio 
 
-// Função que será chamada para criar entrada no Glossário
+// Função que será chamada para criar uma nova entrada do Glossário
 controller.create = async(req, res) => {
     try{
         await User.create(req.body)
