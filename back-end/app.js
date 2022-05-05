@@ -40,8 +40,6 @@ app.use('/question', question)
 const answer = require('./routes/answer')
 app.use('/answer', answer)
 
-const login = require('./routes/login')
-app.use('/login', login)
 
 /***********************/
 
