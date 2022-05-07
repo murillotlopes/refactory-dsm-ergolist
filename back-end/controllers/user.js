@@ -8,7 +8,17 @@ const controller = {} // objeto vazio
 // Função que será chamada para criar entrada no Glossário
 controller.create = async (req, res) => {
     try{
+        // necessário agora ter um campo 'password'
+        if(!req.body.password) return res.status(500).send({error: 'Path "password" is required!'})
+
+        // Encripta o valor de "password" em "password_hash"
+        req.body.password_hash = await bcrypt.hash(req.body.password, 12)
+
+        //Destrói o campo "password" para que ele não seja passado para o model
+        delete req.body.password
+
         await User.create(req.body)
+
         // HTTP 201: Created
         res.status(201).end()
 
@@ -52,6 +62,13 @@ controller.retrieveOne = async (req, res) => {
 
 controller.update = async (req, res) => {
     try{
+        if(req.body.password){ //Se o campo "password" existir
+            // Encripta o valor de "password" em "password_hash"
+            req.body.password_hash = await bcrypt.hash(req.body.password, 12)
+
+            //Destrói o campo "password" para que ele não seja passado para o model
+            delete req.body.password
+        }
         const id = req.body._id
         const result = await User.findByIdAndUpdate(id, req.body)
 
@@ -85,7 +102,7 @@ controller.delete = async (req, res) => {
 controller.login = async(req, res) => {
 
     try{
-        const user = await User.findOne({email: req.body.email})
+        const user = await User.findOne({email: req.body.email}).select('+password_hash')
 
         if(!user) {
             res.status(401).end()
@@ -117,6 +134,9 @@ controller.login = async(req, res) => {
         console.log(error)
         res.status(500).send(error)
     }
+}
+controller.logout = async(req, res) => {
+    res.send({auth: false, token: null})
 }
 
 module.exports = controller
