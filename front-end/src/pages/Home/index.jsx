@@ -1,3 +1,4 @@
+import Signin from "../../components/Signin"
 import Base from "../Base"
 
 const Home = () => {
@@ -9,7 +10,7 @@ const Home = () => {
             </div>
 
             <div>
-                {/* Signin e Signup*/}
+               <Signin/>
             </div>
 
         </Base>

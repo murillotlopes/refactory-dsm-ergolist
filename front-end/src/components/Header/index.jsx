@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom"
 import { ContainerHeader } from "./style"
 
 const Header = () => {
-    return(
+    return (
         <ContainerHeader>
-            <h1><a href="/">ErgoFrame</a></h1>
+            <h1><Link to='/'>ErgoFrame</Link></h1>
         </ContainerHeader>
     )
 }
