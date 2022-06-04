@@ -48,6 +48,26 @@ controller.retrieveOne = async (req, res) => {
     }
 }
 
+controller.retrieveByGroup = async (req, res) => {
+    try {
+        const result = await Question.find({ group: req.params.groupId }).sort('number')
+
+        res.send(result)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
+
+controller.retrieveByGroupAndNumber = async (req, res) => {
+    try{
+        const result = await Question.findOne({group: req.params.groupId, number: req.params.number})
+
+        res.send(result)
+    }catch (error){
+        res.status(500).send(error)
+    }
+}
+
 controller.update = async (req, res) => {
     try {
         const id = req.body._id
