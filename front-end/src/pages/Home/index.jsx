@@ -1,18 +1,22 @@
+import Carrossel from "../../components/Carrossel"
 import Signin from "../../components/Signin"
 import Base from "../Base"
+import { ContainerHome } from "./style"
 
 const Home = () => {
     return (
         <Base>
+            <ContainerHome>
 
-            <div>
-                {/* Carrocel */}
-            </div>
+                <aside>
+                    <Carrossel />
+                </aside>
 
-            <div>
-               <Signin/>
-            </div>
+                <aside>
+                    <Signin />
+                </aside>
 
+            </ContainerHome>
         </Base>
     )
 }

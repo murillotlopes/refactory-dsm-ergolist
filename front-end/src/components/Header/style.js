@@ -26,5 +26,6 @@ export const ContainerHeader = styled.header`
         color: var(--white);
         font-family: 'Roboto Slab', serif;
         font-weight: 400;
+        text-decoration: none;
     }
 `
