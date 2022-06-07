@@ -1,9 +1,10 @@
+import { ContainerButton } from "./style"
 
 const Button = ({children, ...rest}) => {
     return (
-        <button {...rest} >
+        <ContainerButton {...rest} >
             {children}
-        </button>
+        </ContainerButton>
     )
 }
 

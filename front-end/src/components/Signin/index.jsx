@@ -1,13 +1,13 @@
-//import Button from "../Button"
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useContext } from 'react'
-import { ContainerSignin } from './style'
 import Button from '../Button'
+import { Input } from '../../style/inputStyle'
+import { ContainerHomeForm } from '../../style/homeFormStyle'
 
 
-const Signin = () => {
+const Signin = ({setAcesso}) => {
+
 
 
     const schema = yup.object().shape({
@@ -15,7 +15,7 @@ const Signin = () => {
         password: yup.string().required('campo obrigatório')
     })
 
-    const { register, handleSubmit } = useForm({ resolver: yupResolver(schema) })
+    const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
 
     const onSiginin = (data) => {
         console.log(data)
@@ -24,26 +24,26 @@ const Signin = () => {
 
     return (
 
-        <ContainerSignin>
-            <form onSubmit={handleSubmit( data => onSiginin(data))}>
+        <ContainerHomeForm>
+            <form onSubmit={handleSubmit(onSiginin)}>
+                <h3>Login</h3>
 
-                <div >
-                    <h3>Acesse sua conta</h3>
-                    <div >
-                        <input type="text" placeholder="seu e-mail" {...register('email')} />
-                    </div>
+                <Input>
+                    <input type="text" placeholder="seu e-mail" {...register('email')} />
+                    <span>{errors.email?.message}</span>
+                </Input>
 
-                    <div >
-                        <input type="password"  placeholder="sua senha" {...register('password')} />
-                    </div>
+                <Input >
+                    <input type="password" placeholder="sua senha" {...register('password')} />
+                    <span>{errors.password?.message}</span>
+                </Input>
 
-                    <div>
-                        <Button type="submit">Entrar</Button>
-                    </div>
+                <p>Não é cadastrado? <strong onClick={() => setAcesso(false)}>Inscreva-se</strong></p>
 
-                </div>
+                <Button type="submit">Entrar</Button>
+
             </form>
-        </ContainerSignin>
+        </ContainerHomeForm>
     )
 }
 
