@@ -12,6 +12,7 @@ export default createGlobalStyle`
     body{
         font-size: 16px;
         font-family: 'Open Sans', sans-serif;
+        color: var(--gray-900);
     }
 
     a{
