@@ -21,28 +21,28 @@ const Signup = ({setAcesso}) => {
                 <h3>Cadastre-se</h3>
 
                 <Input>
-                    <input type="text" placeholder="seu nome" {...register('name')} />
+                    <input type="text" placeholder="Seu nome" {...register('name')} />
                     <span>{errors.email?.message}</span>
                 </Input>
 
                 <Input>
-                    <input type="text" placeholder="seu e-mail" {...register('email')} />
+                    <input type="text" placeholder="Seu e-mail" {...register('email')} />
                     <span>{errors.email?.message}</span>
                 </Input>
 
                 <Input >
-                    <input type="password" placeholder="uma senha bem segura" {...register('password')} />
+                    <input type="password" placeholder="Uma senha bem segura" {...register('password')} />
                     <span>{errors.password?.message}</span>
                 </Input>
 
                 <Input >
-                    <input type="password" placeholder="agora confirme sua senha" {...register('confirm_password')} />
+                    <input type="password" placeholder="Agora confirme sua senha" {...register('confirm_password')} />
                     <span>{errors.password?.message}</span>
                 </Input>
 
                 <p>Não é cadastrado? <strong onClick={() => setAcesso(true)}>Inscreva-se</strong></p>
 
-                <Button type="submit">Entrar</Button>
+                <Button type="submit">Cadastrar</Button>
 
             </form>
 

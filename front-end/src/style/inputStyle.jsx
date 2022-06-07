@@ -4,7 +4,7 @@ export const Input = styled.div`
             border: 0.5px solid var(--gray-200);
             border-radius: 8px;
             width: 100%;
-            height: 55px;
+            height: 40px;
 
             display: flex;
             flex-direction: column;
@@ -13,15 +13,15 @@ export const Input = styled.div`
 
             input{
                 border: none;
-                padding: 16px 12px;
-                border-radius: 8px;
-                font-size: 16px;
+                padding: 8px 12px;
+                border-radius: var(--radius);
+                font-size: 12px;
             }
 
             span{
                 color: var(--primary-red-light);
-                margin: 0 12px;
-                font-size: 12px;
+                margin: 10px 12px;
+                font-size: 10px;
                 transform: translateY(-18px);
             }
 `
