@@ -1,6 +1,7 @@
 import { Switch, Route } from "react-router"
 import Dashboard from "../pages/Dashboard"
 import Home from "../pages/Home"
+import NovaAvaliacao from "../pages/NovaAvaliacao"
 
 const Routes = () => {
     return (
@@ -11,6 +12,10 @@ const Routes = () => {
 
             <Route exact path='/dashboard'>
                 <Dashboard/>
+            </Route>
+
+            <Route exact path='/nova-avaliacao'>
+                <NovaAvaliacao/>
             </Route>
         </Switch>
     )

@@ -1,6 +1,6 @@
 import { ContainerCarrossel } from "./style"
 
-import img from './download.png'
+//import img from './download.png'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
