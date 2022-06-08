@@ -1,5 +1,6 @@
 import { Switch, Route } from "react-router"
 import Dashboard from "../pages/Dashboard"
+import GroupQ from "../pages/GroupQuestion"
 import Home from "../pages/Home"
 
 const Routes = () => {
@@ -11,6 +12,10 @@ const Routes = () => {
 
             <Route exact path='/dashboard'>
                 <Dashboard/>
+            </Route>
+
+            <Route exact path='/groupquestion'>
+                <GroupQ	/>
             </Route>
         </Switch>
     )

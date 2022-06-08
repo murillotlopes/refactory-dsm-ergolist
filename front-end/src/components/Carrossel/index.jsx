@@ -1,6 +1,5 @@
 import { ContainerCarrossel } from "./style"
 
-import img from './download.png'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
@@ -10,7 +9,7 @@ const Carrocel = () => {
     return(
         <ContainerCarrossel>
             <div>
-            <Carousel showThumbs={false} showIndicators={false} showStatus={false} dynamicHeight={false} autoPlay={true} infiniteLoop={true}>
+            <Carousel showThumbs={false} showIndicators={false} showStatus={false} dynamicHeight={false} autoPlay={true} infiniteLoop={true}interval={1000}>
                 <div>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae totam similique laborum aut libero odio quaerat, illo cumque et aperiam. Eaque saepe odit odio omnis quaerat molestias provident fugiat voluptas? Lore</p>
                 </div>
