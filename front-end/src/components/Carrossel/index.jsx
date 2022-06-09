@@ -9,7 +9,7 @@ const Carrocel = () => {
     return(
         <ContainerCarrossel>
             <div>
-            <Carousel showThumbs={false} showIndicators={false} showStatus={false} dynamicHeight={false} autoPlay={true} infiniteLoop={true}interval={1000}>
+            <Carousel showThumbs={false} showIndicators={false} showStatus={false} dynamicHeight={false} autoPlay={true} infiniteLoop={true} interval={2500}>
                 <div>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae totam similique laborum aut libero odio quaerat, illo cumque et aperiam. Eaque saepe odit odio omnis quaerat molestias provident fugiat voluptas? Lore</p>
                 </div>

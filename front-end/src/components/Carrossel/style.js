@@ -11,9 +11,4 @@ export const ContainerCarrossel = styled.div`
         text-align: justify;
     }
 
-    @mixin for-big-desktop-up {
-        @media (min-width: 1000px) { 
-            p { font-size: 64px } }
-      }
-
 `
