@@ -6,10 +6,8 @@ export const ContainerGroupQuestion = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
 
     margin: 45px;
-    button {
-        background-color: black;
-        padding: 25px 100px;
-        
+    button {        
+        width: 12.5%;
 
         position: fixed;
         bottom: 6.5%;

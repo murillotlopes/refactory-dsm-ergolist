@@ -1,4 +1,5 @@
 import GroupCard from "../../components/GroupCard"
+import Button from "../../components/Button"
 import Base from "../Base"
 
 import informacao from '../../components/GroupCard/ob'
@@ -12,7 +13,7 @@ const GroupQ = () => {
                     return <GroupCard info={info}/>}
                     )}   
 
-                <button> Finalizar </button>
+                <Button> Finalizar </Button>
             </ContainerGroupQuestion>    
         </Base>
     )
