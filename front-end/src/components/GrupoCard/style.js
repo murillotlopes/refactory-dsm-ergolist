@@ -4,8 +4,10 @@ export const GroupCardStyle = styled.div`
     height: 250px;
     width: 250px;
 
+    text-align: center; 
+
     margin: 25px 40px 25px 0;
-    padding: 30px;
+    padding: 15px 20px 15px 15px;
 
     background-color: gray;
 
@@ -16,4 +18,8 @@ export const GroupCardStyle = styled.div`
     grid-template: 100px 1fr / 50px 1fr;
 
     max-width: 100%;
+
+    h2 {
+        font-size: 2.5em
+    }
 `

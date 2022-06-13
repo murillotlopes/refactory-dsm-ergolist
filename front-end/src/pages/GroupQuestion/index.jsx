@@ -1,7 +1,7 @@
-import GroupCard from "../../components/GrupoQuestao"
+import GroupCard from "../../components/GrupoCard"
 import Base from "../Base"
 
-import informacao from '../../components/GrupoQuestao/ob'
+import informacao from '../../components/GrupoCard/ob'
 import { ContainerGroupQuestion } from "./style"
 
 const GroupQ = () => {
