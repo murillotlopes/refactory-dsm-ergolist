@@ -6,7 +6,7 @@ import { Input } from '../../style/inputStyle'
 import { ContainerHomeForm } from '../../style/homeFormStyle'
 
 
-const Signin = ({setAcesso}) => {
+const Signin = ({ setAcesso }) => {
 
 
 
@@ -29,7 +29,7 @@ const Signin = ({setAcesso}) => {
                 <h3>Login</h3>
 
                 <Input>
-                    <input type="text" placeholder="seu e-mail" {...register('email')} />
+                    <input type="text" placeholder="seu e-mail" autoFocus {...register('email')} />
                     <span>{errors.email?.message}</span>
                 </Input>
 
@@ -38,7 +38,7 @@ const Signin = ({setAcesso}) => {
                     <span>{errors.password?.message}</span>
                 </Input>
 
-                <p>Não é cadastrado? <strong onClick={() => setAcesso(false)}>Inscreva-se</strong></p>
+                <p>Não é cadastrado? <strong onClick={() => setAcesso(false)}>Inscreva-se.</strong></p>
 
                 <Button type="submit">Entrar</Button>
 
