@@ -9,7 +9,7 @@ export const GroupCardStyle = styled.div`
     margin: 25px 40px 25px 0;
     padding: 15px 20px 15px 15px;
 
-    background-color: gray;
+    background-color: var(--white);
 
     border-radius: 5px;
 
