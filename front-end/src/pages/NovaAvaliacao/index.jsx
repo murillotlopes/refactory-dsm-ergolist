@@ -4,35 +4,46 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import Button from "../../components/Button"
+import { ContainerNovaAvaliacao } from "./style"
+import { ContainerHomeForm } from "../../style/homeFormStyle"
 
 const NovaAvaliacao = () => {
 
     const schema = yup.object().shape({
-        titulo: yup.string().required('campo obrigatório').email('e-mail inválido'),
-        site: yup.string().required('campo obrigatório')
+        titulo: yup.string().required('campo obrigatório'),
+        site: yup.string()
     })
 
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
 
+    const onNovaAvaliacao = (data) => {
+        console.log(data)
+    }
+
     return (
         <Base>
-            <div>
-                <form onSubmit={handleSubmit()}>
+            <ContainerNovaAvaliacao>
+                <ContainerHomeForm>
 
-                    <Input>
-                        <input type="text" placeholder="seu e-mail" {...register('titulo')} />
-                        <span>{errors.titulo?.message}</span>
-                    </Input>
+                    <form onSubmit={handleSubmit(onNovaAvaliacao)}>
 
-                    <Input>
-                        <input type="text" placeholder="seu e-mail" {...register('site')} />
-                        <span>{errors.site?.message}</span>
-                    </Input>
+                        <h3>Cadastrar uma nova avaliação</h3>
 
-                    <Button>Iniciar</Button>
+                        <Input>
+                            <input type="text" placeholder="Titulo da sua avaliação" {...register('titulo')} />
+                            <span>{errors.titulo?.message}</span>
+                        </Input>
 
-                </form>
-            </div>
+                        <Input>
+                            <input type='text' placeholder="Endereço do seu site" {...register('site')} />
+                            <span>{errors.site?.message}</span>
+                        </Input>
+
+                        <Button>Iniciar</Button>
+
+                    </form>
+                </ContainerHomeForm>
+            </ContainerNovaAvaliacao>
         </Base>
     )
 }
