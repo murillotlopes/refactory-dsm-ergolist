@@ -6,27 +6,34 @@ import * as yup from 'yup'
 import Button from "../Button"
 
 
-const Signup = ({setAcesso}) => {
+const Signup = ({ setAcesso }) => {
 
     const schema = yup.object().shape({
-
+        name: yup.string().required('Campo obrigatório'),
+        email: yup.string().required('Campo obrigatório').email('E-mail inválido'),
+        password: yup.string().required('Campo obrigatório'),
+        confirm_password: yup.string().required('Campo obrigatório')
     })
 
-    const { register, handleSubmit, formState: {errors}} = useForm({ resolver: yupResolver(schema)})
+    const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
+
+    const onSignup = (data) => {
+        console.log(data)
+    }
 
 
     return (
         <ContainerHomeForm>
-            <form onSubmit={handleSubmit()}>
+            <form onSubmit={handleSubmit(onSignup)}>
                 <h3>Cadastre-se</h3>
 
                 <Input>
-                    <input type="text" placeholder="Seu nome" {...register('name')} />
+                    <input type="text" placeholder="Seu nome" autoFocus {...register('name')} />
                     <span>{errors.email?.message}</span>
                 </Input>
 
                 <Input>
-                    <input type="text" placeholder="Seu e-mail" {...register('email')} />
+                    <input type="email" placeholder="Seu e-mail" {...register('email')} />
                     <span>{errors.email?.message}</span>
                 </Input>
 
@@ -40,7 +47,7 @@ const Signup = ({setAcesso}) => {
                     <span>{errors.password?.message}</span>
                 </Input>
 
-                <p>Não é cadastrado? <strong onClick={() => setAcesso(true)}>Inscreva-se</strong></p>
+                <p>Já é cadastrado? <strong onClick={() => setAcesso(true)}>Acesse sua conta.</strong></p>
 
                 <Button type="submit">Cadastrar</Button>
 

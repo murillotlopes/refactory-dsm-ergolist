@@ -16,6 +16,12 @@ export const Input = styled.div`
                 padding: 8px 12px;
                 border-radius: var(--radius);
                 font-size: 12px;
+                
+               
+            }
+
+            input:-webkit-autofill {
+                -webkit-box-shadow: 0 0 0px 1000px white inset;
             }
 
             span{
