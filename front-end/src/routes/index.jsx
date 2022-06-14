@@ -3,6 +3,7 @@ import Dashboard from "../pages/Dashboard"
 import GroupQ from "../pages/GroupQuestion"
 import Home from "../pages/Home"
 import NovaAvaliacao from "../pages/NovaAvaliacao"
+import Question from "../pages/Question"
 
 const Routes = () => {
     return (
@@ -22,6 +23,11 @@ const Routes = () => {
             <Route exact path='/nova-avaliacao'>
                 <NovaAvaliacao/>
             </Route>
+
+            <Route exact path='/question'>
+                <Question/>
+            </Route>
+
         </Switch>
     )
 }
