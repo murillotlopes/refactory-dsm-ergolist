@@ -11,13 +11,13 @@ const Carrocel = () => {
             <div>
             <Carousel showThumbs={false} showIndicators={false} showStatus={false} dynamicHeight={false} autoPlay={true} infiniteLoop={true} interval={2500}>
                 <div>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae totam similique laborum aut libero odio quaerat, illo cumque et aperiam. Eaque saepe odit odio omnis quaerat molestias provident fugiat voluptas? Lore</p>
+                    <p>Seja bem-vindo ao Ergoframe, o site que busca ajudá-lo na auto-avaliação de suas telas usando metódos de avaliação ergonômicos propostos por Bastien e Scapin.</p>
                 </div>
                 <div>
-                   <p> Seja bem-vindo ao Ergoframe, o site amigo das interfaces</p>
+                   <p>Nosso projeto se basea na criação do Ergolist. Uma colaboração do Núcleo Softex-2000 de Florianópolis e o Laboratório de Utizabilidade, (UFSC/SENAI-SC/CTAI) no ano de 1999. </p>
                 </div>
                 <div>
-                    <p> Seja bem-vindo ao Ergoframe, o site amigo das interfaces</p>
+                    <p></p>
                 </div>
             </Carousel>
             </div>
