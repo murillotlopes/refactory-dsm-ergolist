@@ -36,3 +36,23 @@ export const NovaAvaliacao = styled.div`
     align-items: center;
 
 `
+export const InputDash = styled.div`
+
+    input{
+        width: 100%;
+        align-items: center;
+        height: 35px;
+        border-radius: var(--radius);
+        border: 1px solid (--gray-100);
+        padding: 0 20px;
+        margin-bottom: 10px;
+        justify-content: space-between;
+    }
+
+    img{
+        width: 28px;
+        position: relative;
+        top: -42px;
+        left: 500px;
+    }
+`
