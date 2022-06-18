@@ -31,6 +31,7 @@ const Routes = () => {
       <Route exact path='/nova-avaliacao'>
         <NovaAvaliacao />
       </Route>
+
     </Switch>
 
   )
