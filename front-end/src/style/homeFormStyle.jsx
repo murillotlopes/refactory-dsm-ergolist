@@ -12,17 +12,6 @@ export const ContainerHomeForm = styled.div`
         justify-content: center;
     }
 
-    input{
-        font-size:15px;
-        padding: 10px;
-        border: 1px solid #d9d9d9;
-    }
-    
-    input:focus{
-        outline: none;
-        border: 2px solid var(--secundary-blue);
-    }
-
     h3{
         text-transform: uppercase;
         font-family: 'Roboto Slab', serif;

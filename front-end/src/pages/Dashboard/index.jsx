@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 import Base from "../Base"
-import { ContainerDash, NovaAvaliacao, InputDash } from "./style"
-import Pesquisa from '../../assets/images/pesquisa.png'
+import { ContainerDash, NovaAvaliacao } from "./style"
+import { Input } from '../../style/inputStyle'
+
 
 const Dashboard = () => {
     return(
@@ -15,12 +16,9 @@ const Dashboard = () => {
                 </Link>
             </div>
             <div>
-                <InputDash>
-                    <input type="text" placeholder="Pesquisar" /><img src={Pesquisa} alt="pesquisa" />
-                    <input type="text" placeholder="Avaliação 1" />
-                    <input type="text" placeholder="Avaliação 2" />
-                    <input type="text" placeholder="Avaliação 3" />
-                </InputDash>
+                <Input>
+                    <input type="text" placeholder="Pesquisar" />
+                </Input>
             </div>
         </ContainerDash>
         </Base>

@@ -4,11 +4,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import Button from '../Button'
 import { Input } from '../../style/inputStyle'
 import { ContainerHomeForm } from '../../style/homeFormStyle'
-import { FaLock, FaUser } from "react-icons/fa"
 
 const Signin = ({ setAcesso }) => {
-
-
 
     const schema = yup.object().shape({
         email: yup.string().required('campo obrigatório').email('e-mail inválido'),

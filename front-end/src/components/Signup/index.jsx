@@ -11,8 +11,9 @@ const Signup = ({ setAcesso }) => {
     const schema = yup.object().shape({
         name: yup.string().required('Campo obrigatório'),
         email: yup.string().required('Campo obrigatório').email('E-mail inválido'),
-        password: yup.string().required('Campo obrigatório'),
-        confirm_password: yup.string().required('Campo obrigatório')
+        confirm_email: yup.string().required('Campo obrigatório').email('E-mail inválido'),
+        password: yup.string().required('Campo obrigatório')
+        
     })
 
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
@@ -38,7 +39,7 @@ const Signup = ({ setAcesso }) => {
                 </Input>
 
                 <Input >
-                    <input type="email" placeholder="Confirmar e-mail" {...register('confirm-email')} />
+                    <input type="email" placeholder="Confirmar e-mail" {...register('confirm_email')} />
                     <span>{errors.password?.message}</span>
                 </Input>
 
