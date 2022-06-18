@@ -3,26 +3,45 @@ import styled from "styled-components";
 export const ContainerFooter = styled.footer`
 
     height: 60px;
-    background-color: var(--primary-red) ;
+    background-color: var(--primary-red-dark) ;
     position: absolute ;
     bottom:0;
     width: 100% ;
 
     margin-top: 64px;
 
+    img {
+        display: flex;
+        flex-flow: row wrap;
+        margin: 10px 0 0 40px;
+        width: 45px;
+
+    }
+
     div{
         width: 900px;
-        border: 1px solid black ;
-        margin: auto;
+        margin: 0 auto;
     }
 
     div ul{
         display: flex;
-        justify-content: space-around;
         list-style: none;
+        margin-left: 60em;
     }
 
-    a{
+    div li{
+        margin: 0 1em;
+    }
+
+    div ul li{
+        margin-top: -30px;
+    }
+
+
+    div ul li svg{
+        width: 20px;
+        height: 20px;
         color: var(--white);
+        cursor: pointer;
     }
 `

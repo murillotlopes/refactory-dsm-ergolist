@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ContainerButton = styled.button`
     
-    background-color: var(--primary-red);
+    background-color: var(--secundary-blue);
     border-radius: var(--radius);
     font-weight: 700;
     text-transform: uppercase;
