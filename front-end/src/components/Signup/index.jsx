@@ -28,22 +28,22 @@ const Signup = ({ setAcesso }) => {
                 <h3>Cadastre-se</h3>
 
                 <Input>
-                    <input type="text" placeholder="Seu nome" autoFocus {...register('name')} />
+                    <input type="text" placeholder="Nome completo" autoFocus {...register('name')} />
                     <span>{errors.email?.message}</span>
                 </Input>
 
                 <Input>
-                    <input type="email" placeholder="Seu e-mail" {...register('email')} />
+                    <input type="email" placeholder="E-mail" {...register('email')} />
                     <span>{errors.email?.message}</span>
                 </Input>
 
                 <Input >
-                    <input type="password" placeholder="Uma senha bem segura" {...register('password')} />
+                    <input type="email" placeholder="Confirmar e-mail" {...register('confirm-email')} />
                     <span>{errors.password?.message}</span>
                 </Input>
 
                 <Input >
-                    <input type="password" placeholder="Agora confirme sua senha" {...register('confirm_password')} />
+                    <input type="password" placeholder="Senha" {...register('password')} />
                     <span>{errors.password?.message}</span>
                 </Input>
 
