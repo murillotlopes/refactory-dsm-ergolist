@@ -21,7 +21,6 @@ export const Input = styled.div`
             input:focus{
                 outline: none;
                 border: 2px solid var(--secundary-blue);
-                background-color: #D9D9D9;
             }
 
             input:-webkit-autofill {

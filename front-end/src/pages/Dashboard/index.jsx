@@ -8,6 +8,7 @@ import { Input } from '../../style/inputStyle'
 import Avaliacao from '../../components/Avaliacao/Avaliacao'
 import { ContainerHomeForm } from "../../style/homeFormStyle"
 
+
 const Dashboard = () => {
     const schema = yup.object().shape({
         pesquisar: yup.string()
@@ -38,13 +39,13 @@ const Dashboard = () => {
                             <span>{errors.pesquisar?.message}</span>
                         </Input>
                         <Avaliacao>
-                            <p> Avaliação 1</p>
+                            <h6> Avaliação 1</h6>
                         </Avaliacao>
                         <Avaliacao>
-                            <p> Avaliação 2</p>
+                            <h6> Avaliação 2</h6>
                         </Avaliacao>
                         <Avaliacao>
-                            <p> Avaliação 3</p>
+                            <h6> Avaliação 3</h6>
                         </Avaliacao>
                     </form>
                 </ContainerHomeForm>
