@@ -29,7 +29,7 @@ export const NovaAvaliacao = styled.div`
     width: 200px;
 
     border-radius: var(--radius);
-    background-color: var(--primary-red);
+    background-color: var(--secundary-blue);
 
     display: flex;
     justify-content: center;

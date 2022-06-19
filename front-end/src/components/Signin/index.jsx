@@ -26,12 +26,12 @@ const Signin = ({ setAcesso }) => {
                 <h3>Login</h3>
 
                 <Input>
-                    <input type="text" placeholder="E-mail" autoFocus {...register('email')}/>
+                <input type="text" placeholder="E-mail" autoFocus {...register('email')}/>
                     <span>{errors.email?.message}</span>
                 </Input>
 
                 <Input >
-                    <input type="password" placeholder="Senha" {...register('password')}/>
+                <input type="password" placeholder="Senha" {...register('password')}/>
                     <span>{errors.password?.message}</span>
                 </Input>
 
