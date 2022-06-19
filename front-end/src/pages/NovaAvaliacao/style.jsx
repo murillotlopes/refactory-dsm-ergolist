@@ -15,4 +15,30 @@ export const ContainerNovaAvaliacao = styled.div`
         width: 250px;
         margin-bottom: 20px;
     }
+    @media (max-width: 1162px) {
+        h3{
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 720px) {
+        button {
+            width: 200px;
+            text-size: 15px;
+        }
+    }
+
+    @media (max-width: 490px) {
+        button {
+            width: 150px;
+            text-size: 12px;
+        }
+    }
+
+    @media (max-width: 420px) {
+        button {
+            width: 100px;
+            text-size: 10px;
+        }
+    }
 `
