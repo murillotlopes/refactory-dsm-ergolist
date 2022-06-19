@@ -3,7 +3,10 @@ import Base from "../Base"
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { ContainerQuestoes, Form, Resposta } from "./style"
-
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import Button from 'react-bootstrap/Button'
+import { FaHome, FaArrowRight, FaArrowLeft } from "react-icons/fa"
+import { Link } from "react-router-dom"
 
 const Questoes = ({ }) => {
 
@@ -31,20 +34,21 @@ const Questoes = ({ }) => {
           <Resposta>
             <div className="coluna-esquerda">
               <div>
-                <label><input type="radio" name="questao" id="sim" {...register('objective_answer')} />Sim </label>
-                <label><input type="radio" name="questao" id="não" {...register('objective_answer')} />Não </label>
-                <label><input type="radio" name="questao" id="são_se_aplica" {...register('objective_answer')} />Não se aplica </label>
+                <ButtonGroup aria-label="Basic example">
+                  <Button variant="secondary" name="questao" id="sim" {...register('objective_answer')}>Sim</Button>
+                  <Button variant="secondary" name="questao" id="não" {...register('objective_answer')}>Não</Button>
+                  <Button variant="secondary" name="questao" id="são_se_aplica" {...register('objective_answer')}>Não se Aplica</Button>
+                </ButtonGroup>
               </div>
               <div>
-                <input type="text" {...register('comments')} />
+                <input type="text" placeholder="Comentário" {...register('comments')} />
               </div>
             </div>
 
             <div className="coluna-direita">
-              <button type="button" alt="Retornar aos grupos de questões" >Grupos</button>
-              <button type="button" alt="Questão anterior" >Anterior</button>
-              <button type="button" alt="Próxima questão" >Próxima</button>
-
+              <Link to='/groupquestion'><Button><FaHome></FaHome></Button></Link>
+              <Button><FaArrowLeft></FaArrowLeft></Button>
+              <Button><FaArrowRight></FaArrowRight></Button>
             </div>
           </Resposta>
 
