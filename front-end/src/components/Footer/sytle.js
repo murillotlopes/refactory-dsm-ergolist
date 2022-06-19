@@ -5,8 +5,8 @@ export const ContainerFooter = styled.footer`
     height: 60px;
     background-color: var(--primary-red-dark) ;
     position: absolute ;
-    bottom:0;
-    width: 100% ;
+    bottom: 0;
+    width: 100%;
 
     margin-top: 64px;
 
@@ -43,5 +43,22 @@ export const ContainerFooter = styled.footer`
         height: 20px;
         color: var(--white);
         cursor: pointer;
+    }
+
+    @media (max-width: 1400px) {
+        div ul{
+            margin-left: 50em;
+        }
+    }
+
+    @media (max-width: 1090px) {
+        div ul{
+            margin-left: 45em;
+        }
+    }
+    @media (max-width: 900px) {
+        div ul{
+            margin-left: 40em;
+        }
     }
 `
