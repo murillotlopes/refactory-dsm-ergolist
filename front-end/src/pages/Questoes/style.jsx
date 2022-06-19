@@ -64,7 +64,7 @@ export const Resposta = styled.div`
 
         button{
             margin-left: 10px;
-            flex-wrap: nowrap;
+            flex-wrap: rap;
             justify-content: flex-end;
             flex-direction: row;
             display: inline-block;
@@ -83,6 +83,15 @@ export const Resposta = styled.div`
         
         button svg {
             font-size: 25px;
+        }
+    }
+
+    @media (max-width: 1462px){
+        .coluna-direita{
+            button{
+                margin-left: 0px;
+                flex-direction: column;
+            }
         }
     }
 `
