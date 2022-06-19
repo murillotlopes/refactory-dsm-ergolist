@@ -56,9 +56,43 @@ export const ContainerFooter = styled.footer`
             margin-left: 45em;
         }
     }
-    @media (max-width: 900px) {
+
+    @media (max-width: 912px) {
+        overflow: hidden !important;
         div ul{
-            margin-left: 40em;
+            margin-left: 35em;
+        }
+        img {
+            width: 35px;
+        }
+
+    @media (max-width: 750px) {
+        div ul{
+            margin-left: 30em;
+        }
+    }
+
+    @media (max-width: 670px) {
+        div ul{
+            margin-left: 25em;
+        }
+    }
+
+    @media (max-width: 580px) {
+        div ul{
+            margin-left: 20em;
+        }
+    }
+
+    @media (max-width: 510px) {
+        div ul{
+            margin-left: 15em;
+        }
+    }
+
+    @media (max-width: 450px) {
+        div ul{
+            margin-left: 10em;
         }
     }
 `

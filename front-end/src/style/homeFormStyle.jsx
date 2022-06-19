@@ -30,4 +30,15 @@ export const ContainerHomeForm = styled.div`
             color: var(--primary-red)
         }
     }
+
+    @media (max-width: 570px) {
+        p {
+            text-align: center;
+        }
+        h3 {
+            font-size: 20px;
+            text-align: center;
+        }
+    }
 `
+
