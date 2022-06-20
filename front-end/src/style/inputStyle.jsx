@@ -12,12 +12,15 @@ export const Input = styled.div`
             margin-bottom: 20px;
 
             input{
-                border: none;
-                padding: 8px 12px;
+                border: 1px solid #d9d9d9;
+                padding: 10px;
                 border-radius: var(--radius);
-                font-size: 12px;
-                
-               
+                font-size: 15px; 
+            }
+            
+            input:focus{
+                outline: none;
+                border: 2px solid var(--secundary-blue);
             }
 
             input:-webkit-autofill {

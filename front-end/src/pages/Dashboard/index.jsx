@@ -1,9 +1,25 @@
 import { Link } from "react-router-dom"
 import Base from "../Base"
-import { ContainerDash, NovaAvaliacao, InputDash } from "./style"
-import Pesquisa from '../../assets/images/pesquisa.png'
+import { ContainerDash, NovaAvaliacao } from "./style"
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Input } from '../../style/inputStyle'
+import Avaliacao from '../../components/Avaliacao/Avaliacao'
+import { ContainerHomeForm } from "../../style/homeFormStyle"
+
 
 const Dashboard = () => {
+    const schema = yup.object().shape({
+        pesquisar: yup.string()
+    })
+
+    const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
+
+    const onAvaliacao = (data) => {
+        console.log(data)
+    }
+
     return(
         <Base>
         <ContainerDash>
@@ -15,15 +31,27 @@ const Dashboard = () => {
                 </Link>
             </div>
             <div>
-                <InputDash>
-                    <input type="text" placeholder="Pesquisar" /><img src={Pesquisa} alt="pesquisa" />
-                    <input type="text" placeholder="Avaliação 1" />
-                    <input type="text" placeholder="Avaliação 2" />
-                    <input type="text" placeholder="Avaliação 3" />
-                </InputDash>
-            </div>
+                <ContainerHomeForm>
+                    <form onSubmit={handleSubmit(onAvaliacao)}>
+                        <h3>Avaliações Anteriores</h3>
+                        <Input>
+                            <input type="text" placeholder="Pesquisar" {...register('pesquisar')} />
+                            <span>{errors.pesquisar?.message}</span>
+                        </Input>
+                        <Avaliacao>
+                            <h6> Avaliação 1</h6>
+                        </Avaliacao>
+                        <Avaliacao>
+                            <h6> Avaliação 2</h6>
+                        </Avaliacao>
+                        <Avaliacao>
+                            <h6> Avaliação 3</h6>
+                        </Avaliacao>
+                    </form>
+                </ContainerHomeForm>
+            </div> 
         </ContainerDash>
-        </Base>
+    </Base>
     )
 }
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerHeader = styled.header`
-    height: 80px;
+    height: 83px;
 
     display: flex;
     flex-wrap: nowrap;

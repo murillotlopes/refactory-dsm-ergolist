@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const ContainerDash = styled.div`
-    
+    padding: 20px;
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -15,9 +16,30 @@ export const ContainerDash = styled.div`
         justify-content: center;
         align-items: center;
         
-        height: 300px;
+        height: 400px;
         border-radius: var(--radius);
         box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    }
+
+    h3{
+        text-transform: uppercase;
+        font-family: 'Roboto Slab', serif;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    p {
+        padding: 0;
+        margin: 0;
+        margin-left: 10px;
+        text-align: left;
+        color: #020202;
+        font-size: 15px;
+    }
+
+    h6{
+        margin: 10px 10px;
+        font-size: 15px;
     }
 `
 
@@ -29,30 +51,10 @@ export const NovaAvaliacao = styled.div`
     width: 200px;
 
     border-radius: var(--radius);
-    background-color: var(--primary-red);
+    background-color: var(--secundary-blue);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-`
-export const InputDash = styled.div`
-
-    input{
-        width: 100%;
-        align-items: center;
-        height: 35px;
-        border-radius: var(--radius);
-        border: 1px solid (--gray-100);
-        padding: 0 20px;
-        margin-bottom: 10px;
-        justify-content: space-between;
-    }
-
-    img{
-        width: 28px;
-        position: relative;
-        top: -42px;
-        left: 500px;
-    }
 `

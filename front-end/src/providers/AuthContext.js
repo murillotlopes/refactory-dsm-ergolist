@@ -42,7 +42,6 @@ const AuthProvider = ({ children }) => {
                 localStorage.setItem('@ergoframe:token', res.data.token)
                 toast.success('Seja bem vindo ao ErgoFrame')
             }).catch(err => {
-                console.log(err)
                 toast.error('Algo não deu certo.\nVerifique se o e-mail e senha estão corretos')
             })
     }

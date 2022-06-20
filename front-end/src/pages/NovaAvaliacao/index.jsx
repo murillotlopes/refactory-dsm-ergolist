@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Input } from "../../style/inputStyle"
 import Base from "../Base"
 import { useForm } from 'react-hook-form'
@@ -40,6 +41,9 @@ const NovaAvaliacao = () => {
                         </Input>
 
                         <Button>Iniciar</Button>
+
+                        <Link to= '/dashboard' onClick={handleSubmit}><Button>Voltar</Button></Link>
+                        
 
                     </form>
                 </ContainerHomeForm>
