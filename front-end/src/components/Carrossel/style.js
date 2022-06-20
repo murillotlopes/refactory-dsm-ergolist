@@ -19,10 +19,19 @@ export const ContainerCarrossel = styled.div`
     `
     
     export const BgImage = styled.div`
+    position: relative;
     
-    background: url(${img}); 
-    background-size: 240px 240px;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: -1;
+    > img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+        
+        filter: grayscale(300%);
+        filter: brightness(50%);
+        opacity: 0.08;
+
+        max-width: 100%;
+    }
 `
