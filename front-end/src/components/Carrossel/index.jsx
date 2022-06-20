@@ -14,7 +14,7 @@ const Carrocel = () => {
                     <p>Seja bem-vindo ao Ergoframe, o site que ajuda na auto-avaliação de suas telas usando metódos de avaliação ergonômicos propostos por Bastien e Scapin.</p>
                 </div>
                 <div>
-                    <p>A avaliação ergônomica consiste um questionário baseado em avaliações heurísticas, as quais tem foco na usabilidade da interface que está sendo avaliada, portanto, mostra quais trechos podem ser melhorados. </p>
+                    <p>A avaliação ergônomica consiste um questionário baseado em heurísticas, as quais tem foco na usabilidade da interface que está sendo avaliada, portanto, mostra quais trechos podem ser melhorados. </p>
                 </div>
                 <div>
                     <p>Ao criar sua conta, suas avaliações permanecerão salvas e poderão ser utlizadas ou compartilhadas quando quiser!</p>
