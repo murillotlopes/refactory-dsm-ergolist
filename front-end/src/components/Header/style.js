@@ -4,11 +4,18 @@ export const ContainerHeader = styled.header`
     height: 80px;
 
     display: flex;
-    justify-content: center ;
-    align-items: center;
+    flex-wrap: nowrap;
+
     background-color: var(--primary-red-dark);
 
     margin-bottom: 40px;
+
+    div {
+        width: 50%;
+        text-align: end;
+
+        padding-right: 10px;
+    }
 
     img {
         width: 70px;

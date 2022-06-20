@@ -1,51 +1,74 @@
 import { ContainerHomeForm } from "../../style/homeFormStyle"
-import { Input } from "../../style/inputStyle"
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import Button from "../Button"
+import { useState } from "react"
+import { useAuth } from "../../providers/AuthContext"
 
 
 const Signup = ({ setAcesso }) => {
 
+    const [fullnameControll, setfullNameControll] = useState('')
+    const [emailControll, setEmailControll] = useState('')
+    const [passwordControll, setPasswordControll] = useState('')
+    const [confirmControll, setConfirmControll] = useState('')
+
+    const { signUp } = useAuth()
+
     const schema = yup.object().shape({
-        name: yup.string().required('Campo obrigatório'),
+        fullname: yup.string().required('Campo obrigatório'),
         email: yup.string().required('Campo obrigatório').email('E-mail inválido'),
-        password: yup.string().required('Campo obrigatório'),
-        confirm_password: yup.string().required('Campo obrigatório')
+        password: yup.string().required('Campo obrigatório').min(6, 'Sua senha deve conter no mínimo 6 dígitos'),
+        confirm_password: yup.string().required('Campo obrigatório').oneOf([yup.ref('password')], 'A senha não confere')
     })
 
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
 
     const onSignup = (data) => {
-        console.log(data)
+        signUp(data)
     }
-
 
     return (
         <ContainerHomeForm>
             <form onSubmit={handleSubmit(onSignup)}>
                 <h3>Cadastre-se</h3>
 
-                <Input>
-                    <input type="text" placeholder="Seu nome" autoFocus {...register('name')} />
-                    <span>{errors.email?.message}</span>
-                </Input>
+                <div className='form-floating col-md-10 m-2'>
+                    <input
+                        type="text" id="floatingInput"
+                        className={`form-control ${errors.fullname?.message ? 'is-invalid' : !errors.fullname?.message && fullnameControll ? 'is-valid' : ''}`} placeholder="Seu nome completo" autoFocus  {...register('fullname')}
+                        onChange={(e) => setfullNameControll(e.target.value)} />
+                    <label for="floatingInput">Seu nome completo</label>
+                    {!!errors.fullname?.message ? (<small>{errors.fullname?.message}</small>) : null}
+                </div>
 
-                <Input>
-                    <input type="email" placeholder="Seu e-mail" {...register('email')} />
-                    <span>{errors.email?.message}</span>
-                </Input>
+                <div className='form-floating col-md-10 m-2'>
+                    <input
+                        type="text" id="floatingInput"
+                        className={`form-control ${errors.email?.message ? 'is-invalid' : !errors.email?.message && emailControll ? 'is-valid' : ''}`} placeholder="Seu e-mail" {...register('email')}
+                        onChange={(e) => setEmailControll(e.target.value)} />
+                    <label for="floatingInput">Seu e-mail</label>
+                    {!!errors.email?.message ? (<small>{errors.email?.message}</small>) : null}
+                </div>
 
-                <Input >
-                    <input type="password" placeholder="Uma senha bem segura" {...register('password')} />
-                    <span>{errors.password?.message}</span>
-                </Input>
+                <div className='form-floating col-md-10 m-2'>
+                    <input
+                        type="password" id="floatingInput"
+                        className={`form-control ${errors.password?.message ? 'is-invalid' : !errors.password?.message && passwordControll ? 'is-valid' : ''}`} placeholder="Uma senha segura"  {...register('password')}
+                        onChange={(e) => setPasswordControll(e.target.value)} />
+                    <label for="floatingInput">Uma senha segura</label>
+                    {!!errors.password?.message ? (<small>{errors.password?.message}</small>) : null}
+                </div>
 
-                <Input >
-                    <input type="password" placeholder="Agora confirme sua senha" {...register('confirm_password')} />
-                    <span>{errors.password?.message}</span>
-                </Input>
+                <div className='form-floating col-md-10 m-2'>
+                    <input
+                        type="password" id="floatingInput"
+                        className={`form-control ${errors.confirm_password?.message ? 'is-invalid' : !errors.confirm_password?.message && confirmControll ? 'is-valid' : ''}`} placeholder="Confirme sua senha"   {...register('confirm_password')}
+                        onChange={(e) => setConfirmControll(e.target.value)} />
+                    <label for="floatingInput">Confirme sua senha</label>
+                    {!!errors.confirm_password?.message ? (<small>{errors.confirm_password?.message}</small>) : null}
+                </div>
 
                 <p>Já é cadastrado? <strong onClick={() => setAcesso(true)}>Acesse sua conta.</strong></p>
 

@@ -2,13 +2,15 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import Button from '../Button'
-import { Input } from '../../style/inputStyle'
 import { ContainerHomeForm } from '../../style/homeFormStyle'
-import { FaLock, FaUser } from "react-icons/fa"
+import { useAuth } from '../../providers/AuthContext'
+import { useState } from 'react'
 
 const Signin = ({ setAcesso }) => {
 
-
+    const [emailControl, setEmailControl] = useState('')
+    const [passwordControl, setPasswordControl] = useState('')
+    const { signIn } = useAuth()
 
     const schema = yup.object().shape({
         email: yup.string().required('campo obrigatório').email('e-mail inválido'),
@@ -18,7 +20,7 @@ const Signin = ({ setAcesso }) => {
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
 
     const onSiginin = (data) => {
-        console.log(data)
+        signIn(data)
     }
 
 
@@ -28,15 +30,22 @@ const Signin = ({ setAcesso }) => {
             <form onSubmit={handleSubmit(onSiginin)}>
                 <h3>Login</h3>
 
-                <Input>
-                    <input type="text" placeholder="E-mail" autoFocus {...register('email')}/>
-                    <span>{errors.email?.message}</span>
-                </Input>
+                <div className='form-floating col-md-10 m-2'>
+                    <input
+                        type="text" id="floatingInput"
+                        className={`form-control ${errors.email?.message ? 'is-invalid' : !errors.email?.message && emailControl ? 'is-valid' : ''}`} placeholder="e-mail" autoFocus  {...register('email')}
+                        onChange={(e) => setEmailControl(e.target.value)} />
+                    <label for="floatingInput">Seu e-mail</label>
+                    {!!errors.email?.message ? (<small>{errors.email?.message}</small>) : null}
+                </div>
 
-                <Input >
-                    <input type="password" placeholder="Senha" {...register('password')}/>
-                    <span>{errors.password?.message}</span>
-                </Input>
+                <div className='form-floating col-md-10 m-2'>
+                    <input type="password" id="floatingInput"
+                        className={`form-control ${errors.password?.message ? 'is-invalid' : !errors.password?.message && passwordControl ? 'is-valid' : ''}`} placeholder="senha" autoFocus  {...register('password')}
+                        onChange={(e) => setPasswordControl(e.target.value)} />
+                    <label for="floatingInput">Sua senha</label>
+                    {!!errors.password?.message ? (<small>{errors.password?.message}</small>) : null}
+                </div>
 
                 <p>Não é cadastrado? <strong onClick={() => setAcesso(false)}>Inscreva-se.</strong></p>
 

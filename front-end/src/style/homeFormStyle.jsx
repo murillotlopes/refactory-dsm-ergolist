@@ -3,8 +3,6 @@ import styled from 'styled-components'
 export const ContainerHomeForm = styled.div`
     padding: 20px;
 
-    
-
     form {
         width: 100%;
 
@@ -19,6 +17,11 @@ export const ContainerHomeForm = styled.div`
             font-weight: 700;
             margin: 25px auto;
             font-size: 30px;
+        }
+
+        small {
+            color: var(--primary-red);
+            margin-left: 12px;
         }
 
         p{

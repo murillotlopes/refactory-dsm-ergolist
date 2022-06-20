@@ -1,36 +1,21 @@
-import { Switch, Route } from "react-router"
+import { Switch } from "react-router"
 import Dashboard from "../pages/Dashboard"
 import GroupQ from "../pages/GroupQuestion"
 import Home from "../pages/Home"
 import NovaAvaliacao from "../pages/NovaAvaliacao"
 import Questoes from "../pages/Questoes"
+import { Route } from './Route'
 
 const Routes = () => {
   return (
     <Switch>
-      <Route exact path='/'>
-        <Home />
-      </Route>
 
-      <Route exact path='/dashboard'>
-        <Dashboard />
-      </Route>
-
-      <Route exact path='/nova-avaliacao'>
-        <NovaAvaliacao />
-      </Route>
-
-      <Route exact path='/groupquestion'>
-        <GroupQ />
-      </Route>
-
-      <Route exact path='/questao'>
-        <Questoes />
-      </Route>
-
-      <Route exact path='/nova-avaliacao'>
-        <NovaAvaliacao />
-      </Route>
+      <Route exact path='/' component={Home} />
+      <Route exact path='/dashboard' component={Dashboard} isPrivate />
+      <Route exact path='/nova-avaliacao' component={NovaAvaliacao} isPrivate />
+      <Route exact path='/groupquestion' component={GroupQ} isPrivate />
+      <Route exact path='/questao' component={Questoes} isPrivate />
+      <Route exact path='/nova-avaliacao' component={NovaAvaliacao} isPrivate />
 
     </Switch>
 

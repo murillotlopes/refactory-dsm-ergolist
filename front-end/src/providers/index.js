@@ -1,9 +1,10 @@
+import { AuthProvider } from "./AuthContext"
 
-const Providers = ({children}) => {
-    return(
-        <>
-        {children}
-        </>
+const Providers = ({ children }) => {
+    return (
+        <AuthProvider>
+            {children}
+        </AuthProvider>
     )
 }
 
