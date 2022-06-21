@@ -1,3 +1,4 @@
+import jwtDecode from "jwt-decode";
 import { useContext, useState } from "react";
 import { createContext } from "react";
 import toast from "react-hot-toast";
@@ -15,6 +16,12 @@ const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(() => {
         const tokenLocal = localStorage.getItem('@ergoframe:token')
         if (tokenLocal) return tokenLocal
+        return ''
+    })
+
+    const [userid, setUserid] = useState(() => {
+        const useridLocal = localStorage.getItem('@ergoframe:userid')
+        if (useridLocal) return useridLocal
         return ''
     })
 
@@ -38,7 +45,12 @@ const AuthProvider = ({ children }) => {
 
         api.post('/user/login', { email, password })
             .then(res => {
+                const decode = jwtDecode(res.data.token)
+
                 setToken(res.data.token)
+                setUserid(decode.id)
+
+                localStorage.setItem('@ergoframe:userid', decode.id)
                 localStorage.setItem('@ergoframe:token', res.data.token)
                 toast.success('Seja bem vindo ao ErgoFrame')
             }).catch(err => {
@@ -52,7 +64,7 @@ const AuthProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ signIn, token, signOut, signUp }}>
+        <AuthContext.Provider value={{ signIn, token, signOut, signUp, userid }}>
             {children}
         </AuthContext.Provider>
     )
