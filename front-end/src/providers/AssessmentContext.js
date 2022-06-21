@@ -24,12 +24,12 @@ const AssessmentProvider = ({ children }) => {
 
         api.post('/assessment', { title, description, url, user: userid }, { headers: { 'x-access-token': token } })
             .then(res => {
-                console.log(res)
-                history.push(`/nova-avaliacao/${res.data._id}`)
+
+                history.push(`/nova-groupquestion/${res.data._id}`)
                 toast.success('Nova avaliação cadastrada!')
                 userAssessmenteList()
             }).catch(err => {
-                console.log(err)
+
                 toast.error('Algo não ocorreu como esperado.\nTente novamente!')
             })
     }
