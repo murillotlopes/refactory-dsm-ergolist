@@ -35,7 +35,7 @@ const NovaAvaliacao = () => {
                         <h3>Cadastre uma nova avaliação</h3>
 
                         <div className="col-md-10 m-2">
-                            <input type="text" className="form-control" placeholder="Dê um nome para sua avaliação" {...register('title')} required />
+                            <input type="text" className="form-control" placeholder="Dê um nome para sua avaliação (obrigatório)" {...register('title')} required />
                             {!!errors.title?.message ? (<small>{errors.title?.message}</small>) : null}
                         </div>
 

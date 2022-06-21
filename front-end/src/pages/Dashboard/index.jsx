@@ -1,58 +1,50 @@
 import { Link } from "react-router-dom"
 import Base from "../Base"
 import { ContainerDash, NovaAvaliacao } from "./style"
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
 import { Input } from '../../style/inputStyle'
 import Avaliacao from '../../components/Avaliacao/Avaliacao'
 import { ContainerHomeForm } from "../../style/homeFormStyle"
+import { useAssessmentContext } from "../../providers/AssessmentContext"
+import { useEffect } from "react"
+import { useQuestionGroupContext } from "../../providers/QuestionGroupContext"
 
 
 const Dashboard = () => {
-    const schema = yup.object().shape({
-        pesquisar: yup.string()
-    })
+  const { userAssessmenteList, assessmentList } = useAssessmentContext()
+  const { questionGroupList } = useQuestionGroupContext()
 
-    const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
 
-    const onAvaliacao = (data) => {
-        console.log(data)
-    }
+  useEffect(() => {
+    userAssessmenteList()
+    questionGroupList()
+  }, [])
 
-    return(
-        <Base>
-        <ContainerDash>
-            <div>
-                <Link to='/nova-avaliacao'>
-                <NovaAvaliacao>
-                    <h3>Nova avaliação</h3>
-                </NovaAvaliacao>
-                </Link>
-            </div>
-            <div>
-                <ContainerHomeForm>
-                    <form onSubmit={handleSubmit(onAvaliacao)}>
-                        <h3>Avaliações Anteriores</h3>
-                        <Input>
-                            <input type="text" placeholder="Pesquisar" {...register('pesquisar')} />
-                            <span>{errors.pesquisar?.message}</span>
-                        </Input>
-                        <Avaliacao>
-                            <h6> Avaliação 1</h6>
-                        </Avaliacao>
-                        <Avaliacao>
-                            <h6> Avaliação 2</h6>
-                        </Avaliacao>
-                        <Avaliacao>
-                            <h6> Avaliação 3</h6>
-                        </Avaliacao>
-                    </form>
-                </ContainerHomeForm>
-            </div> 
-        </ContainerDash>
+  return (
+    <Base>
+      <ContainerDash>
+        <div>
+          <Link to='/nova-avaliacao'>
+            <NovaAvaliacao>
+              <h3>Nova avaliação</h3>
+            </NovaAvaliacao>
+          </Link>
+        </div>
+        <div>
+          <ContainerHomeForm>
+
+            <h3>Avaliações Anteriores</h3>
+
+            <Input>
+              <input type="text" placeholder="Pesquisar" />
+            </Input>
+
+            {assessmentList.map((item, i) => <Avaliacao key={i} assessment={item} />)}
+
+          </ContainerHomeForm>
+        </div>
+      </ContainerDash>
     </Base>
-    )
+  )
 }
 
 export default Dashboard
