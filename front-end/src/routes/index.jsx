@@ -12,8 +12,8 @@ const Routes = () => {
 
       <Route exact path='/' component={Home} />
       <Route exact path='/dashboard' component={Dashboard} isPrivate />
-      <Route exact path='/nova-avaliacao' component={NovaAvaliacao} isPrivate />
-      <Route exact path='/groupquestion' component={GroupQ} isPrivate />
+      <Route exact path='/nova-avaliacao/' component={NovaAvaliacao} isPrivate />
+      <Route exact path='/groupquestion/:assessmentId' component={GroupQ} isPrivate />
       <Route exact path='/questao' component={Questoes} isPrivate />
       <Route exact path='/nova-avaliacao' component={NovaAvaliacao} isPrivate />
 

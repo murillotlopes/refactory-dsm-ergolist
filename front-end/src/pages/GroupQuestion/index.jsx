@@ -6,15 +6,16 @@ import informacao from '../../components/GroupCard/ob'
 import { ContainerGroupQuestion } from "./style"
 
 const GroupQ = () => {
-    return(
+    return (
         <Base>
             <ContainerGroupQuestion>
-                {informacao.map(info => {
-                    return <GroupCard info={info}/>}
-                    )}   
+                {informacao.map((info, i) => {
+                    return <GroupCard key={i} info={info} />
+                }
+                )}
 
                 <Button> Finalizar </Button>
-            </ContainerGroupQuestion>    
+            </ContainerGroupQuestion>
         </Base>
     )
 }
