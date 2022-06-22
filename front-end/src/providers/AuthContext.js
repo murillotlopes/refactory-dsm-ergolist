@@ -84,12 +84,6 @@ const AuthProvider = ({ children }) => {
             history.push('/')
             return
         }
-
-        // agora.setMinutes(10)
-        // if (agora > expirationTime) {
-        //     toast.error('Sua sessão está prestes a expirar.\nConsidere fazer login novamente')
-        // }
-
     }
 
     return (
