@@ -8,41 +8,31 @@ const controller = {}   // Objeto vazio
 // Função que será chamada para criar uma nova
 // entrada do glossário
 controller.create = async (req, res) => {
-<<<<<<< HEAD
-    try {
-        // É necessário agora ter um campo 'password'
-        // no body
-        if(!req.body.password) return res.status(500).send({error: 'Path "password" is required'})
-=======
-    try{
-        // necessário agora ter um campo 'password'
-        if(!req.body.password) return res.status(500).send({error: 'Path "password" is required!'})
->>>>>>> f8518925cf4da8733c59a964d5a90e9049618124
-
-        // Encripta o valor de "password" em "password_hash"
-        req.body.password_hash = await bcrypt.hash(req.body.password, 12)
-
-<<<<<<< HEAD
-        // Destrói o campo "password" para que ele não seja
-        // passado para o model
-        delete req.body.password
-        
-=======
-        //Destrói o campo "password" para que ele não seja passado para o model
-        delete req.body.password
-
->>>>>>> f8518925cf4da8733c59a964d5a90e9049618124
-        await User.create(req.body)
-
-        // HTTP 201: Created
-        res.status(201).end()
+        try{
+            // necessário agora ter um campo 'password'
+            if(!req.body.password) return res.status(500).send({error: 'Path "password" is required!'})
+    
+            // Encripta o valor de "password" em "password_hash"
+            req.body.password_hash = await bcrypt.hash(req.body.password, 12)
+    
+            // Destrói o campo "password" para que ele não seja
+            // passado para o model
+            delete req.body.password
+            
+            //Destrói o campo "password" para que ele não seja passado para o model
+            delete req.body.password
+    
+            await User.create(req.body)
+    
+            // HTTP 201: Created
+            res.status(201).end()
+        }
+        catch(error) {
+            console.error(error)
+            // HTTP 500: Internal Server Error
+            res.status(500).send(error)
+        }
     }
-    catch(error) {
-        console.error(error)
-        // HTTP 500: Internal Server Error
-        res.status(500).send(error)
-    }
-}
 
 // Função que devolve uma listagem das entradas de
 // glossário já inseridas
@@ -96,19 +86,6 @@ controller.retrieveOne = async (req, res) => {
 }
 
 controller.update = async (req, res) => {
-<<<<<<< HEAD
-    try {
-
-        if(req.body.password) { // Se o campo "password" existir
-            // Encripta o valor de "password" em "password_hash"
-            req.body.password_hash = await bcrypt.hash(req.body.password, 12)
-
-            // Destrói o campo "password" para que ele não seja
-            // passado para o model
-            delete req.body.password
-        }
-
-=======
     try{
         if(req.body.password){ //Se o campo "password" existir
             // Encripta o valor de "password" em "password_hash"
@@ -117,7 +94,6 @@ controller.update = async (req, res) => {
             //Destrói o campo "password" para que ele não seja passado para o model
             delete req.body.password
         }
->>>>>>> f8518925cf4da8733c59a964d5a90e9049618124
         const id = req.body._id
         const result = await User.findByIdAndUpdate(id, req.body)
         // HTTP 204: No content
@@ -145,21 +121,12 @@ controller.delete = async (req, res) => {
     }
 }
 
-<<<<<<< HEAD
-controller.login = async (req, res) => {
-    try {
-        // Buscar o usuário no BD
-        const user = await User.findOne({email: req.body.email}).select('password_hash')
-        if(! user) {    // Usuário não encontrado
-            // HTTP 401: Unauthorized
-=======
 controller.login = async(req, res) => {
 
     try{
         const user = await User.findOne({email: req.body.email}).select('+password_hash')
 
         if(!user) {
->>>>>>> f8518925cf4da8733c59a964d5a90e9049618124
             res.status(401).end()
         }
         else {

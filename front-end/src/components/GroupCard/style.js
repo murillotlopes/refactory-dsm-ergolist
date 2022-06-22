@@ -1,14 +1,18 @@
 import styled from "styled-components";
 
 export const GroupCardStyle = styled.div`
-    height: 200px;
-    width: 250px;
 
-    text-align: center; 
+    height: 225px;
+    width: 100%;
 
-    margin: 25px 40px 25px 0;
-    padding: 15px 20px 15px 15px;
+    max-width: 300px;
+    min-width: 150px;
 
+    position: relative;
+    
+    margin: 5px 10px 5px 0;
+    padding: 10px 15px 10px 10px;
+    
     background-color: var(--white);
 
     border-radius: 5px;
@@ -17,9 +21,24 @@ export const GroupCardStyle = styled.div`
 
     grid-template: 100px 1fr / 50px 1fr;
 
-    max-width: 100%;
-
     h2 {
-        font-size: 2.5em
+        font-size: 20px;
+        text-align: center;
+
+        font-family: 'RobotoExtraLight', serif;
     }
+    
+    p {
+        text-align: justify;
+        font-size: 14px;
+
+        font-family: 'Roboto Light', serif;
+    }
+
+`
+
+export const ProgressBarStyle = styled.div`
+    position: relative;
+    
+    text-align: left;
 `

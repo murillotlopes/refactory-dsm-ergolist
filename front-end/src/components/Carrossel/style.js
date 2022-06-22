@@ -10,6 +10,8 @@ export const ContainerCarrossel = styled.div`
         margin: 25% 5em;
         font-size: 18px;
         text-align: justify;
+        text-shadow: -0.5px 0.5px 1.2px rgba(0, 0, 0, 0.11);
+        text-indent: 20px;
     }
 
     button {
@@ -19,10 +21,19 @@ export const ContainerCarrossel = styled.div`
     `
     
     export const BgImage = styled.div`
+    position: relative;
     
-    background: url(${img}); 
-    background-size: 240px 240px;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: -1;
+    > img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+        
+        filter: grayscale(300%);
+        filter: brightness(50%);
+        opacity: 0.065;
+
+        max-width: 100%;
+    }
 `
