@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import Base from "../Base"
-import { ContainerDash, NovaAvaliacao } from "./style"
+import { ContainerDash, NovaAvaliacao, ScrollAvaliacao } from "./style"
 import { Input } from '../../style/inputStyle'
 import Avaliacao from '../../components/Avaliacao/Avaliacao'
 import { ContainerHomeForm } from "../../style/homeFormStyle"
@@ -38,8 +38,9 @@ const Dashboard = () => {
               <input type="text" placeholder="Pesquisar" />
             </Input>
 
-            {assessmentList.map((item, i) => <Avaliacao key={i} assessment={item} />)}
-
+            <ScrollAvaliacao>
+              {assessmentList.map((item, i) => <Avaliacao key={i} assessment={item} />)}
+            </ScrollAvaliacao>
           </ContainerHomeForm>
         </div>
       </ContainerDash>

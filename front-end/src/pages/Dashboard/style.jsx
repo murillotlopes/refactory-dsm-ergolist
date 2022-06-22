@@ -60,3 +60,18 @@ export const NovaAvaliacao = styled.div`
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 `
+export const ScrollAvaliacao = styled.div`
+    margin-top: 10px;
+    height: 200px;
+    overflow: auto;
+
+    ::-webkit-scrollbar{
+        background-color: #D9D9D9;
+        width: 5px;
+        radius: var(--radius);
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background-color: var(--secundary-blue);
+    }
+`
