@@ -11,6 +11,7 @@ var logger = require('morgan');
 
 var app = express();
 app.listen(4000)
+const cors = require('cors')
 
 const dbConnection = require('./config/database');
 dbConnection();
