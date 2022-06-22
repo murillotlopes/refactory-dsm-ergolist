@@ -10,6 +10,8 @@ export const ContainerCarrossel = styled.div`
         margin: 25% 5em;
         font-size: 18px;
         text-align: justify;
+        text-shadow: -0.5px 0.5px 1.2px rgba(0, 0, 0, 0.11);
+        text-indent: 20px;
     }
 
     button {
@@ -30,7 +32,7 @@ export const ContainerCarrossel = styled.div`
         
         filter: grayscale(300%);
         filter: brightness(50%);
-        opacity: 0.08;
+        opacity: 0.065;
 
         max-width: 100%;
     }

@@ -16,7 +16,10 @@ const Carrocel = () => {
                     <p>Seja bem-vindo ao Ergoframe, o site que ajuda na auto-avaliação de suas telas usando metódos de avaliação ergonômicos propostos por Bastien e Scapin.</p>
                 </div>
                 <div>
-                    <p>A avaliação consiste um questionário baseado em crkitérios ergonômicos, as quais tem foco na usabilidade da interface que está sendo avaliada, portanto, mostra quais trechos podem ser melhorados. </p>
+                    <p>O por que do foguete como logo? Porque com o potencial de nossa ferramenta, seu produto irá decolar!</p>
+                </div>
+                <div>
+                    <p>A avaliação consiste um questionário baseado em critérios ergonômicos, as quais tem foco na usabilidade da interface que está sendo avaliada, portanto, mostra quais trechos podem ser melhorados. </p>
                 </div>
                 <div>
                     <p>Ao criar sua conta, suas avaliações permanecerão salvas e poderão ser utlizadas ou compartilhadas quando quiser!</p>
