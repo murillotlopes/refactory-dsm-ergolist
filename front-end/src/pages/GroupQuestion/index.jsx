@@ -3,12 +3,17 @@ import Button from "../../components/Button"
 import Base from "../Base"
 import { ContainerGroupQuestion } from "./style"
 import { useQuestionGroupContext } from "../../providers/QuestionGroupContext"
+import { useEffect } from "react"
+import { useQuestion } from "../../providers/QuestionContex"
 
 const GroupQ = () => {
 
     const { questionGroup } = useQuestionGroupContext()
+    const { QuestionList } = useQuestion()
 
-    console.log('Está nessa página')
+    useEffect(() => {
+        QuestionList()
+    }, [])
 
     return (
         <Base>

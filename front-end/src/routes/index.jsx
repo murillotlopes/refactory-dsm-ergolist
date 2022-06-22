@@ -14,7 +14,7 @@ const Routes = () => {
       <Route exact path='/dashboard' component={Dashboard} isPrivate />
       <Route exact path='/nova-avaliacao/' component={NovaAvaliacao} isPrivate />
       <Route exact path='/groupquestion/:assessmentId' component={GroupQ} isPrivate />
-      <Route exact path='/questao' component={Questoes} isPrivate />
+      <Route exact path='/groupquestion/:assessmentId/questao/:questionId' component={Questoes} isPrivate />
       <Route exact path='/nova-avaliacao' component={NovaAvaliacao} isPrivate />
 
     </Switch>

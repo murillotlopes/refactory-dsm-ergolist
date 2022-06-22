@@ -75,9 +75,7 @@ const AuthProvider = ({ children }) => {
 
     const checkTokenValidity = () => {
         const agora = new Date().getTime()
-        // console.log(agora)
-        // console.log(expirationTime * 1000)
-        console.log('toda página ele verifica')
+
         if (agora > (expirationTime * 1000)) {
             toast.error('Sua sessão expirou.\nRealize um novo login!')
             localStorage.clear()

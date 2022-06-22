@@ -41,7 +41,7 @@ const AssessmentProvider = ({ children }) => {
 
                 setAssessmentList(res.data)
                 localStorage.setItem('@ergoframe:assessmentList', JSON.stringify(res.data))
-                console.log(res.data)
+
                 if ((res.data).length > 0)
                     toast.success('Suas avaliações foram carregadas')
                 else

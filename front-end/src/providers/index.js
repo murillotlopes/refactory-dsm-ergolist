@@ -1,5 +1,6 @@
 import { AssessmentProvider } from "./AssessmentContext"
 import { AuthProvider } from "./AuthContext"
+import { QuestionProvider } from "./QuestionContex"
 import { QuestionGroupProvider } from "./QuestionGroupContext"
 
 const Providers = ({ children }) => {
@@ -7,7 +8,9 @@ const Providers = ({ children }) => {
     <AuthProvider>
       <AssessmentProvider>
         <QuestionGroupProvider>
-          {children}
+          <QuestionProvider>
+            {children}
+          </QuestionProvider>
         </QuestionGroupProvider>
       </AssessmentProvider>
     </AuthProvider>
