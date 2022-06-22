@@ -9,13 +9,14 @@ export const ContainerGroupQuestion = styled.div`
     margin: 16px;
 
     button {        
-        width: 12.5%;
+        position: fixed;
+        width: 250px;
 
-        position: absolute;
-        bottom: 6.5%;
+        bottom: 80px;
         left: 50%;
-        right: 50%;
 
-        transform: translate(-50%, -50%);
+        transform: translate(-50%);
+        
+        opacity: 0.8;       
     }
 `
