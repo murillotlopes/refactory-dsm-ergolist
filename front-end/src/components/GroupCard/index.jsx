@@ -1,4 +1,4 @@
-import { GroupCardStyle } from "./style"
+import { GroupCardStyle, ProgressBarStyle } from "./style"
 
 import ProgressBar from "@ramonak/react-progress-bar";
 
@@ -10,9 +10,13 @@ const GroupCard = ({ info }) => {
 
   return (
     <GroupCardStyle>
-      <h2>{group}</h2>
-      <h4>{description}</h4>
-      <ProgressBar completed={progress} maxCompleted={maxProgress} isLabelVisible={false} bgColor="var(--secundary-blue)" margin="40% 0" height="0.65em" initCompletedOnAnimation={true} />
+      <ProgressBarStyle>
+        <ProgressBar completed={progress} maxCompleted={maxProgress} isLabelVisible={false} bgColor="var(--secundary-blue)" margin="0px 0 18px 0" height="5px" initCompletedOnAnimation={true} />
+      </ProgressBarStyle>
+      <div>
+        <h2>{group}</h2>
+        <p>{description}</p>
+      </div>
     </GroupCardStyle>
   )
 }
