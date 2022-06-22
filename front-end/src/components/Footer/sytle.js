@@ -2,20 +2,21 @@ import styled from "styled-components";
 
 export const ContainerFooter = styled.footer`
 
-    height: 60px;
+    min-height: 4rem;
     background-color: var(--primary-red-dark) ;
-    position: absolute ;
+    position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
+
 
     margin-top: 64px;
 
     img {
         display: flex;
-        flex-flow: row wrap;
-        margin: 10px 0 0 40px;
-        width: 45px;
-
+        margin: 4px 0 0 40px;
+        width: 130px;
+        tewxt-align: center;
     }
 
     div{
@@ -34,7 +35,7 @@ export const ContainerFooter = styled.footer`
     }
 
     div ul li{
-        margin-top: -30px;
+        margin-top: -40px;
     }
 
 
@@ -43,6 +44,8 @@ export const ContainerFooter = styled.footer`
         height: 20px;
         color: var(--white);
         cursor: pointer;
+        float: right;
+
     }
 
     @media (max-width: 1400px) {
@@ -58,13 +61,10 @@ export const ContainerFooter = styled.footer`
     }
 
     @media (max-width: 912px) {
-        overflow: hidden !important;
         div ul{
             margin-left: 35em;
         }
-        img {
-            width: 35px;
-        }
+
 
     @media (max-width: 750px) {
         div ul{
