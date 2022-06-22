@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom"
-import { Input } from "../../style/inputStyle"
+import { useHistory } from "react-router-dom"
 import Base from "../Base"
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
@@ -7,18 +6,23 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import Button from "../../components/Button"
 import { ContainerNovaAvaliacao } from "./style"
 import { ContainerHomeForm } from "../../style/homeFormStyle"
+import { useAssessmentContext } from "../../providers/AssessmentContext"
 
 const NovaAvaliacao = () => {
 
+    const history = useHistory()
+    const { createAssessment } = useAssessmentContext()
+
     const schema = yup.object().shape({
-        titulo: yup.string().required('campo obrigatório'),
-        site: yup.string()
+        title: yup.string().required('campo obrigatório'),
+        description: yup.string(),
+        url: yup.string()
     })
 
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
 
     const onNovaAvaliacao = (data) => {
-        console.log(data)
+        createAssessment(data)
     }
 
     return (
@@ -28,22 +32,26 @@ const NovaAvaliacao = () => {
 
                     <form onSubmit={handleSubmit(onNovaAvaliacao)}>
 
-                        <h3>Cadastrar uma nova avaliação</h3>
+                        <h3>Cadastre uma nova avaliação</h3>
 
-                        <Input>
-                            <input type="text" placeholder="Titulo da sua avaliação" {...register('titulo')} />
-                            <span>{errors.titulo?.message}</span>
-                        </Input>
+                        <div className="col-md-10 m-2">
+                            <input type="text" className="form-control" placeholder="Dê um nome para sua avaliação (obrigatório)" {...register('title')} required />
+                            {!!errors.title?.message ? (<small>{errors.title?.message}</small>) : null}
+                        </div>
 
-                        <Input>
-                            <input type='text' placeholder="Endereço do seu site" {...register('site')} />
-                            <span>{errors.site?.message}</span>
-                        </Input>
+                        <div className="col-md-10 m-2">
+                            <input type="text" className="form-control" placeholder="Endereço do seu site avaliado" {...register('url')} />
+                            {!!errors.url?.message ? (<small>{errors.url?.message}</small>) : null}
+                        </div>
 
-                        <Button>Iniciar</Button>
+                        <div className="col-md-10 m-2">
+                            <textarea className="form-control" rows='3' placeholder="Uma descrição para sua avaliação" {...register('description')} />
+                            {!!errors.description?.message ? (<small>{errors.description?.message}</small>) : null}
+                        </div>
 
-                        <Link to= '/dashboard' onClick={handleSubmit}><Button>Voltar</Button></Link>
-                        
+                        <Button type='submit' className='m-3'>Iniciar</Button>
+
+                        <Button onClick={() => history.push('/dashboard')} >Voltar</Button>
 
                     </form>
                 </ContainerHomeForm>

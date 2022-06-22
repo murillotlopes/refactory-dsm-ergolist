@@ -8,7 +8,7 @@ function App() {
     <>
       <GlobalStyle />
       <Routes />
-      <Toaster position='top-right' reverseOrder={false} />
+      <Toaster position='top-right' reverseOrder={true} toastOptions={{ duration: 5000 }} />
     </>
   );
 }
