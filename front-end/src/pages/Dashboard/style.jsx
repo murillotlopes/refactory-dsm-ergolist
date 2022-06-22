@@ -57,4 +57,6 @@ export const NovaAvaliacao = styled.div`
     justify-content: center;
     align-items: center;
 
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 `

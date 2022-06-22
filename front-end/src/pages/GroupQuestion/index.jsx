@@ -8,6 +8,8 @@ const GroupQ = () => {
 
     const { questionGroup } = useQuestionGroupContext()
 
+    console.log('Está nessa página')
+
     return (
         <Base>
             <ContainerGroupQuestion>

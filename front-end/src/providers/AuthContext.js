@@ -2,6 +2,7 @@ import jwtDecode from "jwt-decode";
 import { useContext, useState } from "react";
 import { createContext } from "react";
 import toast from "react-hot-toast";
+import { useHistory } from "react-router-dom";
 import api from "../services/api";
 
 const AuthContext = createContext()
@@ -12,6 +13,8 @@ const useAuth = () => {
 }
 
 const AuthProvider = ({ children }) => {
+
+    const history = useHistory()
 
     const [token, setToken] = useState(() => {
         const tokenLocal = localStorage.getItem('@ergoframe:token')
@@ -24,6 +27,10 @@ const AuthProvider = ({ children }) => {
         if (useridLocal) return useridLocal
         return ''
     })
+
+    const [expirationTime, setExpirationTime] = useState(
+        localStorage.getItem('@ergoframe:exp') || ''
+    )
 
     const signUp = ({ fullname, email, password }) => {
 
@@ -49,9 +56,12 @@ const AuthProvider = ({ children }) => {
 
                 setToken(res.data.token)
                 setUserid(decode.id)
+                setExpirationTime(decode.exp)
 
+                localStorage.setItem('@ergoframe:exp', decode.exp)
                 localStorage.setItem('@ergoframe:userid', decode.id)
                 localStorage.setItem('@ergoframe:token', res.data.token)
+
                 toast.success('Seja bem vindo ao ErgoFrame')
             }).catch(err => {
                 toast.error('Algo não deu certo.\nVerifique se o e-mail e senha estão corretos')
@@ -63,8 +73,27 @@ const AuthProvider = ({ children }) => {
         setToken('')
     }
 
+    const checkTokenValidity = () => {
+        const agora = new Date().getTime()
+        // console.log(agora)
+        // console.log(expirationTime * 1000)
+        console.log('toda página ele verifica')
+        if (agora > (expirationTime * 1000)) {
+            toast.error('Sua sessão expirou.\nRealize um novo login!')
+            localStorage.clear()
+            history.push('/')
+            return
+        }
+
+        // agora.setMinutes(10)
+        // if (agora > expirationTime) {
+        //     toast.error('Sua sessão está prestes a expirar.\nConsidere fazer login novamente')
+        // }
+
+    }
+
     return (
-        <AuthContext.Provider value={{ signIn, token, signOut, signUp, userid }}>
+        <AuthContext.Provider value={{ signIn, token, signOut, signUp, userid, checkTokenValidity }}>
             {children}
         </AuthContext.Provider>
     )

@@ -12,19 +12,22 @@ const useQuestionGroupContext = () => {
 
 const QuestionGroupProvider = ({ children }) => {
 
-    const [questionGroup, setQuestionGroup] = useState()
+    const [questionGroup, setQuestionGroup] = useState(
+        JSON.parse(localStorage.getItem('@ergoframe:questionGroup'))
+    )
 
     const { token } = useAuth()
 
     const questionGroupList = () => {
         api.get('/question-group', { headers: { 'x-access-token': token } })
             .then(res => {
-                console.log(res.data)
-                toast.success('Grupos carregados')
+
+                localStorage.setItem('@ergoframe:questionGroup', JSON.stringify(res.data))
                 setQuestionGroup(res.data)
+                toast.success('Grupos carregados')
+
             }).catch(err => {
-                console.log(err)
-                toast.error('Deu ruim')
+                toast.error('Tivemos algum problema pedimos desculpas.\nTente realizar seu login novamente!')
             })
     }
 
