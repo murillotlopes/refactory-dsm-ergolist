@@ -6,13 +6,16 @@ import UserIcon from "../UserIcon/index"
 
 const Header = () => {
 
+    const { token } = useAuth()
+
     return (
         <ContainerHeader>
             <div>
                 <Link to='/'><img src={Logo} alt="logo" /></Link>
             </div>
             <div>
-                <UserIcon></UserIcon>
+                {token ? <UserIcon></UserIcon> : null}
+
             </div>
         </ContainerHeader>
     )

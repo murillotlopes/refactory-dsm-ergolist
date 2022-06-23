@@ -3,7 +3,6 @@ import { GroupCardStyle, ProgressBarStyle } from "./style"
 import ProgressBar from "@ramonak/react-progress-bar";
 import { useHistory, useParams } from "react-router-dom";
 import { useQuestion } from "../../providers/QuestionContex";
-import { useEffect } from "react";
 
 
 const GroupCard = ({ info }) => {
@@ -13,9 +12,6 @@ const GroupCard = ({ info }) => {
   const { group, description } = info
   const progress = 10
   const maxProgress = 100
-
-
-  // console.log(info._id)
 
   const generateList = async () => {
     const currentQuestionList = await question.filter(item => item.group._id === info._id)

@@ -8,13 +8,13 @@ const UserIcon = () => {
 
     return (
         <UserIconStyle>
-            <div onClick={() => signOut()}>
-                <FaUser  size="20px"></FaUser>
-                <div>
+            <div>
+                <FaUser size="20px"></FaUser>
+                <divon onClick={() => signOut()}>
                     <p>Sair</p>
-                </div>
+                </divon>
             </div>
-        </UserIconStyle> 
+        </UserIconStyle>
     )
 }
 

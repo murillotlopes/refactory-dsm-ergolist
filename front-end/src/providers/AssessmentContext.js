@@ -18,15 +18,16 @@ const AssessmentProvider = ({ children }) => {
     )
 
     const history = useHistory()
-    const { token, userid} = useAuth()
+    const { token, userid } = useAuth()
 
     const createAssessment = async ({ title, description, url }) => {
         api.post('/assessment', { title, description, url, user: userid }, { headers: { 'x-access-token': token } })
             .then(res => {
 
-                history.push(`/nova-groupquestion/${res.data._id}`)
-                toast.success('Nova avaliação cadastrada!')
                 userAssessmenteList()
+                toast.success('Nova avaliação cadastrada!')
+                history.push(`/groupquestion/${res.data._id}`)
+                return res.data._id
             }).catch(err => {
 
                 toast.error('Algo não ocorreu como esperado.\nTente novamente!')

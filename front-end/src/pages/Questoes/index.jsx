@@ -23,6 +23,28 @@ const Questoes = () => {
   const currentAssessment = assessmentList.find(item => item._id === params.assessmentId)
   const questionNow = currentQuestion.find(item => item._id === params.questionId)
 
+  const nextQuestion = currentQuestion.find(item => item.number === (questionNow.number + 1))
+  const backQuestion = currentQuestion.find(item => item.number === (questionNow.number - 1))
+
+  const avancar = () => {
+
+    if (nextQuestion) {
+
+      history.push(`/groupquestion/${params.assessmentId}/questao/${nextQuestion._id}`)
+    } else {
+      history.push(`/groupquestion/${params.assessmentId}`)
+    }
+  }
+
+  const voltar = () => {
+    if (backQuestion) {
+      history.push(`/groupquestion/${params.assessmentId}/questao/${backQuestion._id}`)
+    } else {
+      history.push(`/groupquestion/${params.assessmentId}`)
+    }
+
+  }
+
   const submitAnswer = () => {
     const data = {
       assessment: params.assessmentId,
@@ -72,8 +94,8 @@ const Questoes = () => {
 
             <div className="coluna-direita">
               <Button onClick={() => history.push(`/groupquestion/${params.assessmentId}`)}><FaHome></FaHome></Button>
-              <Button><FaArrowLeft></FaArrowLeft></Button>
-              <Button><FaArrowRight></FaArrowRight></Button>
+              <Button onClick={() => voltar()} ><FaArrowLeft></FaArrowLeft></Button>
+              <Button onClick={() => avancar()}><FaArrowRight></FaArrowRight></Button>
             </div>
           </Resposta>
 
