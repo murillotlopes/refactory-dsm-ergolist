@@ -2,10 +2,9 @@ import { Link } from "react-router-dom"
 import { ContainerHeader } from "./style"
 import Logo from "../../assets/images/logo.png"
 import { useAuth } from "../../providers/AuthContext"
+import UserIcon from "../UserIcon/index"
 
 const Header = () => {
-
-    const { signOut } = useAuth()
 
     return (
         <ContainerHeader>
@@ -13,7 +12,7 @@ const Header = () => {
                 <Link to='/'><img src={Logo} alt="logo" /></Link>
             </div>
             <div>
-                <button onClick={() => signOut()}>Sair</button>
+                <UserIcon></UserIcon>
             </div>
         </ContainerHeader>
     )
