@@ -16,12 +16,18 @@ const QuestionProvider = ({ children }) => {
 
     const { token } = useAuth()
 
-    const [question, setQuestion] = useState()
+    const [question, setQuestion] = useState(
+        JSON.parse(localStorage.getItem('@ergoframe:questionList'))
+    )
+
+    const [currentQuestion, setCurrentQuestion] = useState(
+        JSON.parse(localStorage.getItem('@ergoframe:currentList'))
+    )
 
     const QuestionList = () => {
         api.get('/question', { headers: { 'x-access-token': token } })
             .then(res => {
-                console.log(res.data)
+
                 localStorage.setItem('@ergoframe:questionList', JSON.stringify(res.data))
                 setQuestion(res.data)
                 toast.success('As perguntas foram carregadas corretamente.')
@@ -30,8 +36,13 @@ const QuestionProvider = ({ children }) => {
             })
     }
 
+    const currentQuestionByGroup = (currentList) => {
+        setCurrentQuestion(currentList)
+        localStorage.setItem('@ergoframe:currentList', JSON.stringify(currentList))
+    }
+
     return (
-        <QuestionContext.Provider value={{ QuestionList, question }}>
+        <QuestionContext.Provider value={{ QuestionList, question, currentQuestionByGroup, currentQuestion }}>
             {children}
         </QuestionContext.Provider>
     )

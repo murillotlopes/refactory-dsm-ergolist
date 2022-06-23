@@ -18,10 +18,9 @@ const AssessmentProvider = ({ children }) => {
     )
 
     const history = useHistory()
-    const { token, userid } = useAuth()
+    const { token, userid} = useAuth()
 
-    const createAssessment = ({ title, description, url }) => {
-
+    const createAssessment = async ({ title, description, url }) => {
         api.post('/assessment', { title, description, url, user: userid }, { headers: { 'x-access-token': token } })
             .then(res => {
 
@@ -32,10 +31,10 @@ const AssessmentProvider = ({ children }) => {
 
                 toast.error('Algo não ocorreu como esperado.\nTente novamente!')
             })
+
     }
 
-    const userAssessmenteList = () => {
-
+    const userAssessmenteList = async () => {
         api.get('/assessment', { headers: { 'x-access-token': token } })
             .then(res => {
 
@@ -50,6 +49,7 @@ const AssessmentProvider = ({ children }) => {
             }).catch(err => {
                 toast.error('Algo não ocorreu como esperado.\nTente fazer login novamente!')
             })
+
     }
 
 

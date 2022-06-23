@@ -58,9 +58,9 @@ const AuthProvider = ({ children }) => {
                 setUserid(decode.id)
                 setExpirationTime(decode.exp)
 
-                localStorage.setItem('@ergoframe:exp', decode.exp)
-                localStorage.setItem('@ergoframe:userid', decode.id)
                 localStorage.setItem('@ergoframe:token', res.data.token)
+                localStorage.setItem('@ergoframe:userid', decode.id)
+                localStorage.setItem('@ergoframe:exp', decode.exp)
 
                 toast.success('Seja bem vindo ao ErgoFrame')
             }).catch(err => {
@@ -73,19 +73,20 @@ const AuthProvider = ({ children }) => {
         setToken('')
     }
 
-    const checkTokenValidity = () => {
-        const agora = new Date().getTime()
+    // const checkTokenValidity = () => {
+    //     const agora = new Date().getTime()
 
-        if (agora > (expirationTime * 1000)) {
-            toast.error('Sua sessão expirou.\nRealize um novo login!')
-            localStorage.clear()
-            history.push('/')
-            return
-        }
-    }
+    //     if (agora > (expirationTime * 1000)) {
+    //         toast.error('Sua sessão expirou.\nRealize um novo login!')
+    //         localStorage.clear()
+    //         history.push('/')
+    //         return ''
+    //     }
+    //     return ''
+    // }
 
     return (
-        <AuthContext.Provider value={{ signIn, token, signOut, signUp, userid, checkTokenValidity }}>
+        <AuthContext.Provider value={{ signIn, token, signOut, signUp, userid }}>
             {children}
         </AuthContext.Provider>
     )

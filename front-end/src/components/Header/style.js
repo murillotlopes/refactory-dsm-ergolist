@@ -8,7 +8,7 @@ export const ContainerHeader = styled.header`
 
     background-color: var(--primary-red-dark);
 
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 
     div {
         width: 50%;

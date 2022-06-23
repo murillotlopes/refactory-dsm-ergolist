@@ -4,7 +4,7 @@ export const ContainerQuestoes = styled.div`
     
     width: 50%;
 
-    margin: 0 auto;
+    margin: 16px auto;
     padding: 40px;
 
     background-color: var(--gray-100);
@@ -50,12 +50,9 @@ export const Resposta = styled.div`
             color: var(--white);
             border: none;
         }
-    
-        input {
-            width: 100%;
-            margin-top: 30px;
-            border: 1px solid #000;
-            border-radius: var(--radius);
+
+        textarea {
+            resize: none;
         }
     }
 
@@ -93,5 +90,33 @@ export const Resposta = styled.div`
                 flex-direction: column;
             }
         }
+    }
+`
+
+export const CabecalhoPesquisa = styled.div`
+    text-align: center;
+
+    div {
+        width: 35%;
+        min-width: 300px;
+        margin: 0 auto;
+        border-radius: var(--radius);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 10px;
+    }
+
+    h3 {
+        text-transform: uppercase;
+        font-family: 'Roboto Slab', serif;
+        font-weight: 700;
+        /* margin: 10px 0; */
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+
+    a {
+        font-size: 20px;
+        color: var(--primary-red);
+        text-decoration: underline;
     }
 `

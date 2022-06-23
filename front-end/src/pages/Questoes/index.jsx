@@ -1,52 +1,77 @@
-import { useForm } from "react-hook-form"
 import Base from "../Base"
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
-import { ContainerQuestoes, Form, Resposta } from "./style"
+import { CabecalhoPesquisa, ContainerQuestoes, Form, Resposta } from "./style"
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Button from 'react-bootstrap/Button'
 import { FaHome, FaArrowRight, FaArrowLeft } from "react-icons/fa"
-import { Link } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
+import { useQuestion } from "../../providers/QuestionContex"
+import { useAssessmentContext } from "../../providers/AssessmentContext"
+import { useEffect, useState } from "react"
+import { useAnswer } from "../../providers/AnswerContext"
 
-const Questoes = ({ }) => {
+const Questoes = () => {
 
-  const schema = yup.object().shape({
-    objective_answer: yup.string().required(),
-    comments: yup.string()
-  })
+  const { assessmentList } = useAssessmentContext()
+  const { currentQuestion } = useQuestion()
+  const { createAnswer } = useAnswer()
+  const params = useParams()
+  const history = useHistory()
 
-  const { handleSubmit, register } = useForm({ resolver: yupResolver(schema) })
+  const [answer, setAnsewer] = useState('P')
+  const [comments, setComments] = useState('')
 
-  const onQuestoes = (data) => {
-    console.log(data)
+  const currentAssessment = assessmentList.find(item => item._id === params.assessmentId)
+  const questionNow = currentQuestion.find(item => item._id === params.questionId)
+
+  const submitAnswer = () => {
+    const data = {
+      assessment: params.assessmentId,
+      question: params.questionId,
+      objective_answer: answer,
+      comments: comments
+    }
+    createAnswer(data)
   }
+
+  useEffect(() => {
+    submitAnswer()
+  }, [answer, comments])
 
   return (
     <Base>
+      <CabecalhoPesquisa>
+        <div>
+          <h3>{currentAssessment.title}</h3>
+          {currentAssessment.url ? <a href={currentAssessment.url} target="_blank" without rel="noreferrer">{currentAssessment.url}</a> : null}
+        </div>
+      </CabecalhoPesquisa>
       <ContainerQuestoes>
 
-        <Form onSubmit={handleSubmit(onQuestoes)}>
+        <Form>
 
           <div>
-            <p>{`Os títulos de telas, janelas e caixas de diálogo estão no alto, centrados ou justificados à esquerda?`}</p>
+            <div>
+              <h3 title={questionNow.group.description}>{questionNow.group.group}</h3>
+            </div>
+            <p><span>{questionNow.number}</span> - {questionNow.enunciation}</p>
           </div>
 
           <Resposta>
             <div className="coluna-esquerda">
               <div>
                 <ButtonGroup aria-label="Basic example">
-                  <Button variant="secondary" name="questao" id="sim" {...register('objective_answer')}>Sim</Button>
-                  <Button variant="secondary" name="questao" id="não" {...register('objective_answer')}>Não</Button>
-                  <Button variant="secondary" name="questao" id="são_se_aplica" {...register('objective_answer')}>Não se Aplica</Button>
+                  <Button variant="secondary" name="questao" id="sim" onClick={() => setAnsewer('Y')} >Sim</Button>
+                  <Button variant="secondary" name="questao" id="não" onClick={() => setAnsewer('N')}>Não</Button>
+                  <Button variant="secondary" name="questao" id="são_se_aplica" onClick={() => setAnsewer('X')}>Não se Aplica</Button>
                 </ButtonGroup>
               </div>
               <div>
-                <input type="text" placeholder="Comentário" {...register('comments')} />
+                <textarea className="form-control mt-3" rows='3' type="text" placeholder="Comentário" onChange={(e) => setComments(e.target.value)} />
               </div>
             </div>
 
             <div className="coluna-direita">
-              <Link to='/groupquestion'><Button><FaHome></FaHome></Button></Link>
+              <Button onClick={() => history.push(`/groupquestion/${params.assessmentId}`)}><FaHome></FaHome></Button>
               <Button><FaArrowLeft></FaArrowLeft></Button>
               <Button><FaArrowRight></FaArrowRight></Button>
             </div>

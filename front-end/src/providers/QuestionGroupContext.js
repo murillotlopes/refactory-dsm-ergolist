@@ -16,9 +16,11 @@ const QuestionGroupProvider = ({ children }) => {
         JSON.parse(localStorage.getItem('@ergoframe:questionGroup'))
     )
 
+
+
     const { token } = useAuth()
 
-    const questionGroupList = () => {
+    const questionGroupList = async () => {
         api.get('/question-group', { headers: { 'x-access-token': token } })
             .then(res => {
 

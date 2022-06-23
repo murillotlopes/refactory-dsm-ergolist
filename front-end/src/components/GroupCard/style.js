@@ -21,6 +21,8 @@ export const GroupCardStyle = styled.div`
 
     grid-template: 100px 1fr / 50px 1fr;
 
+    cursor: pointer;
+
     h2 {
         font-size: 20px;
         text-align: center;
