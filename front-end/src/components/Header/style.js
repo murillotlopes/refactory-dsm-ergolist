@@ -20,5 +20,5 @@ export const ContainerHeader = styled.header`
     img {
         width: 70px;
     }
-
+    
 `
