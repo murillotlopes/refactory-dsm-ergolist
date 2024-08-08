@@ -2,7 +2,7 @@
 const QuestionGroup = require('../models/QuestionGroup')()
 import { Request, Response } from 'express'
 
-const questionGroupController: any = {
+const questionGroupController = {
 
     // Função que será chamada para criar entrada no Glossário
     create: async (req: Request, res: Response) => {

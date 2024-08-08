@@ -2,7 +2,7 @@
 const Glossary = require('../models/Glossary')()
 import { Request, Response } from 'express'
 
-const glossaryController: any = {
+const glossaryController = {
 
     // Função que será chamada para criar entrada no Glossário
     create: async (req: Request, res: Response) => {

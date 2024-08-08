@@ -5,7 +5,7 @@ import { compare, hash } from 'bcrypt'
 import { Request, Response } from 'express'
 import { sign } from 'jsonwebtoken'
 
-const userController: any = {
+const userController = {
 
     // Função que será chamada para criar uma nova
     // entrada do glossário

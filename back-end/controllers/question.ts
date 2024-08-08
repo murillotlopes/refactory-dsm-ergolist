@@ -2,7 +2,7 @@
 const Question = require('../models/Question')()
 import { Request, Response } from 'express'
 
-const questionController: any = {
+const questionController = {
 
     // Função que será chamada para criar entrada no Glossário
     create: async (req: Request, res: Response) => {

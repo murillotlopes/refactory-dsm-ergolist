@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node --env-file=.env dist/src/server.js",
-    "dev": "tsx watch --env-file=.env src/server.ts",
+    "start": "node --env-file=.env dist/app.js",
+    "dev": "tsx watch --env-file=.env app.ts",
     "build": "tsc"
   },
   "dependencies": {

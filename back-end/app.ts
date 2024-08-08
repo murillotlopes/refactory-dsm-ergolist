@@ -3,18 +3,16 @@ import express from 'express'
 import logger from 'morgan'
 import path from 'path'
 
-import dbConnection from './config/database'
 import glossaryRouter from './routes/glossary'
 import userRouter from './routes/user'
 import assessmentRouter from './routes/assessment'
 import questionGroupRouter from './routes/question_group'
 import questionRouter from './routes/question'
 import answerRouter from './routes/answer'
+import mongoose from 'mongoose'
 
 const app = express();
-app.listen(4000)
-
-dbConnection();
+const port = process.env.PORT || 4000
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -30,4 +28,16 @@ app.use('/assessment', assessmentRouter)
 app.use('/question-group', questionGroupRouter)
 app.use('/question', questionRouter)
 app.use('/answer', answerRouter)
+
+
+mongoose.connect(process.env.DB_URI as string).then(() => {
+  console.log('** Mongoose! conectado ao servidor remoto')
+
+  app.listen(port, () => {
+    console.log(`** Servidor rodando na porta ${port}`)
+  })
+
+}).catch(erro => {
+  console.error('** ERROR: Mongooose! Não conectado ao servidor remoto, Causa: ' + erro)
+})
 

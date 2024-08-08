@@ -2,7 +2,7 @@
 const Assessment = require('../models/Assessment')()
 import { Request, Response } from 'express'
 
-const assessmentController: any = {
+const assessmentController = {
 
     // Função que será chamada para criar entrada no Glossário
     create: async (req: Request, res: Response) => {
