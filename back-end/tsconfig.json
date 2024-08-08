@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "ES2023",
+      "DOM"
+    ],
+    "module": "node16",
+    "outDir": "./dist/src",
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "target": "ES2022",
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+  }
+}
