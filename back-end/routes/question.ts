@@ -1,17 +1,16 @@
-const express = require('express')
-const router = express.Router()
-const verifyToken = require('../lib/verify_token')
+import { Router } from "express"
+import verifyToken from "../lib/verify_token"
+import questionController from "../controllers/question"
 
-// Importa o controller correspondente
-const controller = require('../controllers/question')
+const questionRouter = Router()
 
-router.post('/', verifyToken, controller.create)
-router.get('/', verifyToken, controller.retrieve)
-router.get('/group/:groupId', verifyToken, controller.retrieveByGroup)
-router.get('//group-number/:groupId/:number', verifyToken, controller.retrieveByGroupAndNumber)
-router.get('/:id', verifyToken, controller.retrieveOne)
-router.put('/', verifyToken, controller.update)
-router.delete('/', verifyToken, controller.delete)
+questionRouter.post('/', verifyToken, questionController.create)
+questionRouter.get('/', verifyToken, questionController.retrieve)
+questionRouter.get('/group/:groupId', verifyToken, questionController.retrieveByGroup)
+questionRouter.get('//group-number/:groupId/:number', verifyToken, questionController.retrieveByGroupAndNumber)
+questionRouter.get('/:id', verifyToken, questionController.retrieveOne)
+questionRouter.put('/', verifyToken, questionController.update)
+questionRouter.delete('/', verifyToken, questionController.delete)
 
 
-module.exports = router
+export default questionRouter

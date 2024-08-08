@@ -1,14 +1,13 @@
-const express = require('express')
-const router = express.Router()
-const verifyToken = require('../lib/verify_token')
+import { Router } from "express"
+import verifyToken from "../lib/verify_token"
+import assessmentController from "../controllers/assessment"
 
-// Importa o controller correspondente
-const controller = require('../controllers/assessment')
+const assessmentRouter = Router()
 
-router.post('/', controller.create)
-router.get('/', verifyToken, controller.retrieve)
-router.get('/:id', verifyToken, controller.retrieveOne)
-router.put('/', controller.update)
-router.delete('/', controller.delete)
+assessmentRouter.post('/', assessmentController.create)
+assessmentRouter.get('/', verifyToken, assessmentController.retrieve)
+assessmentRouter.get('/:id', verifyToken, assessmentController.retrieveOne)
+assessmentRouter.put('/', assessmentController.update)
+assessmentRouter.delete('/', assessmentController.delete)
 
-module.exports = router
+export default assessmentRouter

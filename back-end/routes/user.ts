@@ -1,16 +1,15 @@
-const express = require('express')
-const router = express.Router()
-const verifyToken = require('../lib/verify_token')
+import { Router } from "express"
+import verifyToken from "../lib/verify_token"
+import userController from "../controllers/user"
 
-// Importa o controller correspondente
-const controller = require('../controllers/user')
+const userRouter = Router()
 
-router.post('/', controller.create)
-router.post('/login', controller.login)
-router.post('/logout', controller.logout)
-router.get('/', verifyToken, controller.retrieve)
-router.get('/:id', verifyToken, controller.retrieveOne)
-router.put('/', verifyToken, controller.update)
-router.delete('/', verifyToken, controller.delete)
+userRouter.post('/', userController.create)
+userRouter.post('/login', userController.login)
+userRouter.post('/logout', userController.logout)
+userRouter.get('/', verifyToken, userController.retrieve)
+userRouter.get('/:id', verifyToken, userController.retrieveOne)
+userRouter.put('/', verifyToken, userController.update)
+userRouter.delete('/', verifyToken, userController.delete)
 
-module.exports = router
+export default userRouter

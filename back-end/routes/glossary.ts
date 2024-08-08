@@ -1,13 +1,12 @@
-const express = require('express')
-const router = express.Router()
+import { Router } from "express"
+import glossaryController from "../controllers/glossary"
 
-// Importa o controller correspondente
-const controller = require('../controllers/glossary')
+const glossaryRouter = Router()
 
-router.post('/', controller.create)
-router.get('/', controller.retrieve)
-router.get('/:id', controller.retrieveOne)
-router.put('/', controller.update)
-router.delete('/', controller.delete)
+glossaryRouter.post('/', glossaryController.create)
+glossaryRouter.get('/', glossaryController.retrieve)
+glossaryRouter.get('/:id', glossaryController.retrieveOne)
+glossaryRouter.put('/', glossaryController.update)
+glossaryRouter.delete('/', glossaryController.delete)
 
-module.exports = router
+export default glossaryRouter

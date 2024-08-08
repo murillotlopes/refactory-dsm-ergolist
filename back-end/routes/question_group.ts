@@ -1,13 +1,12 @@
-const express = require('express')
-const router = express.Router()
+import { Router } from "express"
+import questionGroupController from "../controllers/question_group"
 
-// Importa o controller correspondente
-const controller = require('../controllers/question_group')
+const questionGroupRouter = Router()
 
-router.post('/', controller.create)
-router.get('/', controller.retrieve)
-router.get('/:id', controller.retrieveOne)
-router.put('/', controller.update)
-router.delete('/', controller.delete)
+questionGroupRouter.post('/', questionGroupController.create)
+questionGroupRouter.get('/', questionGroupController.retrieve)
+questionGroupRouter.get('/:id', questionGroupController.retrieveOne)
+questionGroupRouter.put('/', questionGroupController.update)
+questionGroupRouter.delete('/', questionGroupController.delete)
 
-module.exports = router
+export default questionGroupRouter
