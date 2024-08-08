@@ -9,14 +9,14 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
     if (!token) return res.status(403).send({ auth: false, message: 'No token provided' })
 
     // Verifica se o token é válido e está no prazo de validade
-    verify(token, process.env.SECRET as string, (err, decoded) => {
+    verify(token, process.env.SECRET as string, (err, decoded: any) => {
         // Token inválido/expirado
         if (err) return res.status(403).send({ auth: false, message: 'Failed to authenticate token' })
 
         // O token está OK!
 
         // Salva o id na request para uso posterior
-        req.authenticatedId = decoded.id
+        req['authenticatedId'] = decoded.id
 
         next()  // Chama a próxima função de middleware
     })
