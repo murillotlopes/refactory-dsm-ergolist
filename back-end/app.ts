@@ -1,19 +1,19 @@
-// Carrega as variáveis de ambiente do arquivo .env
-require('dotenv').config()
+import cookieParser from 'cookie-parser'
+import express from 'express'
+import logger from 'morgan'
+import path from 'path'
 
-// Exibindo as variáveis de ambiente no console (teste)
-//console.log(process.env)
+import dbConnection from './config/database'
+import glossaryRouter from './routes/glossary'
+import userRouter from './routes/user'
+import assessmentRouter from './routes/assessment'
+import questionGroupRouter from './routes/question_group'
+import questionRouter from './routes/question'
+import answerRouter from './routes/answer'
 
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-var app = express();
+const app = express();
 app.listen(4000)
-const cors = require('cors')
 
-const dbConnection = require('./config/database');
 dbConnection();
 
 app.use(logger('dev'));
@@ -24,25 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /********** ROTAS **********/
 
-const glossary = require('./routes/glossary')
-app.use('/glossary', glossary)
+app.use('/glossary', glossaryRouter)
+app.use('/user', userRouter)
+app.use('/assessment', assessmentRouter)
+app.use('/question-group', questionGroupRouter)
+app.use('/question', questionRouter)
+app.use('/answer', answerRouter)
 
-const user = require('./routes/user')
-app.use('/user', user)
-
-const assessment = require('./routes/assessment')
-app.use('/assessment', assessment)
-
-const question_group = require('./routes/question_group')
-app.use('/question-group', question_group)
-
-const question = require('./routes/question')
-app.use('/question', question)
-
-const answer = require('./routes/answer')
-app.use('/answer', answer)
-
-
-/***********************/
-
-module.exports = app;
