@@ -10,6 +10,8 @@ import questionGroupRouter from './routes/question_group'
 import questionRouter from './routes/question'
 import answerRouter from './routes/answer'
 import mongoose from 'mongoose'
+import cors from 'cors'
+import warmup from './lib/warmup'
 
 const app = express();
 const port = process.env.PORT || 4000
@@ -19,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors())
 
 /********** ROTAS **********/
 
@@ -30,8 +33,12 @@ app.use('/question', questionRouter)
 app.use('/answer', answerRouter)
 
 
-mongoose.connect(process.env.DB_URI as string).then(() => {
+mongoose.connect(process.env.DB_URI as string).then(async () => {
   console.log('** Mongoose! conectado ao servidor remoto')
+
+  await warmup().then(() => {
+    console.log('** Perguntas e Group de Perguntas carregadas no DB')
+  })
 
   app.listen(port, () => {
     console.log(`** Servidor rodando na porta ${port}`)

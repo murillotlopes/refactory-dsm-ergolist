@@ -1,6 +1,6 @@
 // importa o model correspondente 
-const Assessment = require('../models/Assessment')()
 import { Request, Response } from 'express'
+import Assessment from '../models/Assessment'
 
 const assessmentController = {
 

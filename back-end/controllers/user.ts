@@ -1,9 +1,9 @@
 // Importa o model correspondente
-const User = require('../models/User')()
 
 import { compare, hash } from 'bcrypt'
 import { Request, Response } from 'express'
 import { sign } from 'jsonwebtoken'
+import User from '../models/User'
 
 const userController = {
 
