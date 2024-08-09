@@ -1,3 +1,4 @@
+import { QuestionGroupType } from "../@types/questionGroup"
 
 let glossaries = [
   {
@@ -410,7 +411,7 @@ let glossaries = [
   }
 ]
 
-let question_groups = [
+let question_groups: QuestionGroupType[] = [
   {
     group: "Presteza",
     description: "Verifique se o sistema informa e conduz o usuário durante a interação.",
@@ -807,7 +808,7 @@ let question_groups = [
       {
         number: 17,
         enunciation: 'Os números que indicam as opções de menu estão alinhados pela direita?',
-        group: "62ab67b08e47c4ed116e0f8f"
+        glossaryItem: []
       },
       {
         number: 18,

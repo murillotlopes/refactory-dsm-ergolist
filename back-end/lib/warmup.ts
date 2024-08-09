@@ -26,7 +26,7 @@ const warmup = async () => {
       const existingQuestion = await Question.findOne({ number: question.number, group: group._id });
 
       if (!existingQuestion) {
-        question.group = group._id;
+        question.group = group._id; // Atribui o ID do grupo
         await Question.create(question);
       }
     }
