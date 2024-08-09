@@ -1,6 +1,7 @@
 // importa o model correspondente 
-const Glossary = require('../models/Glossary')()
+
 import { Request, Response } from 'express'
+import Glossary from '../models/Glossary'
 
 const glossaryController = {
 

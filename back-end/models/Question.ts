@@ -1,25 +1,29 @@
-const mongoose = require('mongoose')
+import { ObjectId } from 'mongodb';
+import { Schema, model } from 'mongoose'
 
-module.exports = function() {
-    const schema = mongoose.Schema({
-        number: {
-            type: Number,
-            required: true
-        },
-        enunciation:{
-            type: String,
-            required: true
-        },
-        // chave estrangeira para QuestionGroup
-        group: {
-            type: mongoose.ObjectId,
-            ref: 'QuestionGroup',
-            require: true
-        }
-    })
+const schema = new Schema({
+    number: {
+        type: Number,
+        required: true
+    },
+    enunciation: {
+        type: String,
+        required: true
+    },
+    group: {
+        type: ObjectId,
+        ref: 'QuestionGroup',
+        required: true
+    },
+    glossaryItem: {
+        type: [],
+        required: false
+    },
 
-    // Criando indice único para os campos group e number
-    schema.index({group: 1 /* ASC */, number: 1 /* ASC */}, {unique:true})
+})
 
-    return mongoose.model('Question', schema, 'questions')
-}
+schema.index({ group: 1, number: 1 }, { unique: true })
+
+const Question = model('Question', schema, 'questions')
+
+export default Question

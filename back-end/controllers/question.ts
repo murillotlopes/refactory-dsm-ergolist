@@ -1,6 +1,6 @@
 // importa o model correspondente 
-const Question = require('../models/Question')()
 import { Request, Response } from 'express'
+import Question from '../models/Question'
 
 const questionController = {
 

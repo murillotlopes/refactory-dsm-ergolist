@@ -1,6 +1,6 @@
 // importa o model correspondente 
-const QuestionGroup = require('../models/QuestionGroup')()
 import { Request, Response } from 'express'
+import QuestionGroup from '../models/QuestionGroup'
 
 const questionGroupController = {
 
