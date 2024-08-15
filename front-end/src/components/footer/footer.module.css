@@ -1,0 +1,28 @@
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 80px;
+  padding: 1rem 2rem;
+  background-color: var(--primary-red-dark);
+  text-align: center;
+}
+
+.footerContainer img {
+  height: calc(80px - 2rem);
+}
+
+.footerContainer ul {
+  display: flex;
+  list-style: none;
+}
+
+.footerContainer li {
+  margin-right: 0.5rem;
+  color: var(--white);
+}
+
+.footerContainer p {
+  color: var(--white);
+}

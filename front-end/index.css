@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: var(--gray-900);
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --radius: 8px;
+  --primary-red-light: #EB5757;
+  --primary-red: #B20000;
+  --primary-red-dark: #931914;
+  --secundary-blue-dark: #005c6e;
+  --secundary-blue: rgb(43, 185, 201);
+  --secundary-blue-alfa: rgba(43, 185, 201, 0.623);
+
+  --gray-0: #F5F5F5;
+  --gray-100: #E0E0E0;
+  --gray-200: #BDBDBD;
+  --gray-300: #828282;
+  --gray-900: #333333;
+
+  --white: #f3f3f3;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+/*  Estilos para dispositivos com largura menor que 320px (para telefones celulares pequenos)*/
+@media (max-width: 320px) {
+  /* regras de estilo aqui */
+}
+
+/* Estilos para dispositivos com largura entre 321px e 480px (para telefones celulares maiores e tablets pequenos)*/
+@media (min-width: 321px) and (max-width: 480px) {
+  /* regras de estilo aqui */
+}
+
+/* Estilos para dispositivos com largura entre 481px e 768px (para tablets maiores e desktops pequenos)*/
+@media (min-width: 481px) and (max-width: 768px) {
+  /* regras de estilo aqui */
+}
+
+/* Estilos para dispositivos com largura entre 769px e 1024px (para desktops grandes)*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* regras de estilo aqui */
+}

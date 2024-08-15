@@ -1,0 +1,11 @@
+.headerContainer {
+  height: 80px;
+  background-color: var(--primary-red-dark);
+  text-align: center;
+
+  padding: 0.5rem 0;
+}
+
+.headerContainer img {
+  height: calc(80px - 1rem)
+}
