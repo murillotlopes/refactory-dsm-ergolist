@@ -21,7 +21,8 @@ const assessmentController = {
     // Função que devolve uma listagem das entradas de glossário já inseridas
     retrieve: async (req: Request, res: Response) => {
         try {
-            const result = await Assessment.find({ user: req.authenticatedId }).populate('user')
+            const title = req.query?.key
+            const result = await Assessment.find({ user: req.authenticatedId, title }).populate('user')
             // HTTP 200: OK é implícito aqui 
             res.send(result)
         }

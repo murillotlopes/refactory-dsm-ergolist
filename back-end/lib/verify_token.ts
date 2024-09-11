@@ -3,7 +3,7 @@ import { verify } from 'jsonwebtoken'
 
 const verifyToken = (req: Request, res: Response, next: NextFunction) => {
     // Lê o token passado no cabeçalho da requisição
-    const token = req.headers['Authorization'] as string
+    const token = req.headers['authorization'] as string
 
     // Se o token não existir, retorna 403: Forbidden
     if (!token) return res.status(403).send({ auth: false, message: 'No token provided' })
