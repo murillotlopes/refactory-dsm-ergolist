@@ -17,7 +17,7 @@ const AuthProvider = ({ children }: ProviderProps) => {
     const token = sessionStorage.getItem('@ergoframe:token')
 
     if (token) {
-      api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`
+      api.defaults.headers.common['Authorization'] = `Bearer ${JSON.parse(token)}`
     }
 
   }, [])

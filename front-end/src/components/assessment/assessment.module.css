@@ -1,0 +1,17 @@
+.container {
+  background-color: #fff;
+  width: 100%;
+  border: 1px solid #D9D9D9;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 0.5rem;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.container h4 {
+  font-size: 17px;
+  margin-top: 3px;
+}
