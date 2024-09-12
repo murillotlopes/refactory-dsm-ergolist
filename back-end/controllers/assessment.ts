@@ -7,9 +7,9 @@ const assessmentController = {
     // Função que será chamada para criar entrada no Glossário
     create: async (req: Request, res: Response) => {
         try {
-            await Assessment.create(req.body)
+            const newAssessment = await Assessment.create(req.body)
             // HTTP 201: Created
-            res.status(201).end()
+            res.status(201).send(newAssessment)
         }
         catch (error) {
             console.error(error)
@@ -21,8 +21,14 @@ const assessmentController = {
     // Função que devolve uma listagem das entradas de glossário já inseridas
     retrieve: async (req: Request, res: Response) => {
         try {
-            const title = req.query?.key
-            const result = await Assessment.find({ user: req.authenticatedId, title }).populate('user')
+            const title = req.query?.key as string
+            const params: any = {
+                user: req.authenticatedId
+            }
+
+            if (title) params['title'] = { $regex: new RegExp(title, 'i') }
+
+            const result = await Assessment.find(params).populate('user')
             // HTTP 200: OK é implícito aqui 
             res.send(result)
         }

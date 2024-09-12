@@ -7,26 +7,16 @@ import User from '../models/User'
 
 const userController = {
 
-    // Função que será chamada para criar uma nova
-    // entrada do glossário
     create: async (req: Request, res: Response) => {
         try {
-            // necessário agora ter um campo 'password'
-            if (!req.body.password) return res.status(500).send({ error: 'Path "password" is required!' })
+            if (!req.body.password) return res.status(400).send({ error: 'Path "password" is required!' })
 
-            // Encripta o valor de "password" em "password_hash"
             req.body.password_hash = await hash(req.body.password, 12)
 
-            // Destrói o campo "password" para que ele não seja
-            // passado para o model
-            delete req.body.password
-
-            //Destrói o campo "password" para que ele não seja passado para o model
             delete req.body.password
 
             await User.create(req.body)
 
-            // HTTP 201: Created
             res.status(201).end()
         }
         catch (error) {
@@ -136,7 +126,7 @@ const userController = {
                     if (result) {
                         // expiresIn: prazo de validade do token,
                         // em segundos
-                        const token = sign({ id: user._id }, process.env.SECRET as string, { expiresIn: 3600 })
+                        const token = sign({ id: user._id }, process.env.SECRET as string, { expiresIn: '1d' })
                         // Resposta com HTTP 200 implícito
                         res.json({ auth: true, token })
                     }
