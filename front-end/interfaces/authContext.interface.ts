@@ -9,6 +9,8 @@ export interface ProviderProps {
 export interface AuthContextData {
 
   signIn: (login: tLogin) => Promise<void>;
-  signUp: (user: tUserRegistration) => Promise<void>
+  signUp: (user: tUserRegistration) => Promise<void>;
+  userId: string | undefined
+  token: string | undefined
 
 }

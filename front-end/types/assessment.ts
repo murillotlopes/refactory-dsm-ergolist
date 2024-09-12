@@ -3,5 +3,6 @@ export type AssessmentType = {
   _id: string,
   title: string,
   description: string,
-  closed?: boolean
+  closed?: boolean,
+  user?: string
 }

@@ -2,9 +2,9 @@
 import { Link } from 'react-router-dom'
 import { DefaultPage } from '../../components/defaultPage/defaultPage'
 import styles from './dashboard.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAssessment } from '../../providers/assessmentContext'
-import { Assessment } from '../../components/assessment/assessment'
+import { AssessmentItem } from '../../components/assessment/assessmentItem'
 import { AssessmentType } from '../../../types/assessment'
 import { Input } from '../../components/input/input'
 import { FaSearch } from 'react-icons/fa'
@@ -17,10 +17,12 @@ export const Dashboard = () => {
 
   const handleChangeSearchAssessment = (e: React.ChangeEvent<HTMLInputElement>) => {
     setKeySearch(e.target.value)
-    console.log(e.target.value)
-
     getAllAssessment(setAssessmentList, e.target.value)
   }
+
+  useEffect(() => {
+    getAllAssessment(setAssessmentList)
+  }, [])
 
 
   return (
@@ -40,7 +42,7 @@ export const Dashboard = () => {
 
           <div className={styles.scrollAssessment}>
             {
-              assessmentList.map(item => <Assessment key={item._id} assessment={item} ></Assessment>)
+              assessmentList.map(item => <AssessmentItem key={item._id} assessment={item} ></AssessmentItem>)
             }
           </div>
 

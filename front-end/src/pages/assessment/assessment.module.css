@@ -1,0 +1,43 @@
+.container {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+
+  padding: 2rem;
+
+  text-align: center;
+}
+
+.container>h3 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 25px 0 25px 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.btn {
+  border: 1px solid var(--gray-900);
+  border-radius: var(--radius);
+  padding: 1rem;
+  width: 100%;
+  max-width: 300px;
+  background-color: var(--secundary-blue);
+
+  color: var(--gray-0);
+  font-weight: 700;
+
+  margin-bottom: 1rem;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .container {
+    background-color: var(--white);
+  }
+
+
+  .container>h3 {
+    font-size: 1rem;
+  }
+
+}

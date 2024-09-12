@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { AssessmentProps } from '../../../interfaces/assessment.interface'
 
 
-export const Assessment = ({ assessment }: AssessmentProps) => {
+export const AssessmentItem = ({ assessment }: AssessmentProps) => {
 
   const navigate = useNavigate()
 
